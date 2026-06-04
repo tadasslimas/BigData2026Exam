@@ -1,0 +1,2569 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e883682f3e488f4e1aa385fb939be912 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+     <div style="position: fixed; bottom: 50px; left: 50px; width: 220px; height: 160px;
+     border:2px solid grey; z-index:9999; font-size:14px; background-color:white; opacity: 0.9; padding: 10px;">
+     <b>Rizikos balas: <span style="color:red;">65</span></b><br>
+     <b>Greitis (SOG):</b><br>
+     <i style="background:green;width:12px;height:12px;float:left;margin-right:5px;border-radius:50%;"></i> &gt; 12 mzg<br>
+     <i style="background:yellow;width:12px;height:12px;float:left;margin-right:5px;border-radius:50%;"></i> 5 - 12 mzg<br>
+     <i style="background:orange;width:12px;height:12px;float:left;margin-right:5px;border-radius:50%;"></i> 1 - 5 mzg<br>
+     <i style="background:red;width:12px;height:12px;float:left;margin-right:5px;border-radius:50%;"></i> 0.1 - 1 mzg<br>
+     <i style="background:blue;width:12px;height:12px;float:left;margin-right:5px;border-radius:50%;"></i> &lt; 0.1 mzg<br>
+     <br>
+     <span style="color:grey;">--- DZI-100</span><br>
+     <span style="color:black;"><b>— DZI-10</b></span>
+     </div>
+     
+    
+            <div class="folium-map" id="map_e883682f3e488f4e1aa385fb939be912" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_e883682f3e488f4e1aa385fb939be912 = L.map(
+                "map_e883682f3e488f4e1aa385fb939be912",
+                {
+                    center: [54.6667, 14.319815],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 15,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_38820bfc4456471ed4bcf1fce8b480b5 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_38820bfc4456471ed4bcf1fce8b480b5.addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+            var poly_line_2a251be39df09c1f26fab416a4da0782 = L.polyline(
+                [[54.681757, 14.30763], [54.681553, 14.30781], [54.681357, 14.30799], [54.681153, 14.308178], [54.680933, 14.30836], [54.680273, 14.30891], [54.68007, 14.309088], [54.67982, 14.309288], [54.679573, 14.30946], [54.67912, 14.309825], [54.67912, 14.309825], [54.678883, 14.310017], [54.678657, 14.310185], [54.678393, 14.310377], [54.67819, 14.310543], [54.67772, 14.31093], [54.67723, 14.3113], [54.67698, 14.311512], [54.676767, 14.311667], [54.676303, 14.312035], [54.676067, 14.312247], [54.67583, 14.31245], [54.675367, 14.312815], [54.67492, 14.31321], [54.674457, 14.313633], [54.673983, 14.314008], [54.67353, 14.314382], [54.673277, 14.314597], [54.673063, 14.31476], [54.671877, 14.315763], [54.671663, 14.315953], [54.671437, 14.316148], [54.67117, 14.316353], [54.67117, 14.316353], [54.670713, 14.316705], [54.67046, 14.316913], [54.67025, 14.31707], [54.669517, 14.317642], [54.669303, 14.317778], [54.669043, 14.317995], [54.66881, 14.318168], [54.668597, 14.318337], [54.668337, 14.318535], [54.66811, 14.318703], [54.667897, 14.318867], [54.66767, 14.31905], [54.667417, 14.319262], [54.667207, 14.319437], [54.666937, 14.319632], [54.6667, 14.319815], [54.66649, 14.319962], [54.666243, 14.320115], [54.666, 14.32029], [54.665807, 14.320432], [54.6653, 14.320785], [54.66508, 14.320962], [54.66482, 14.321102], [54.664537, 14.321267], [54.664307, 14.321388], [54.664063, 14.321557], [54.663787, 14.321715], [54.66356, 14.321875], [54.6633, 14.322028], [54.663013, 14.322202], [54.662543, 14.322482], [54.662273, 14.322692], [54.662053, 14.32284], [54.662053, 14.32284], [54.6618, 14.323013], [54.661533, 14.323225], [54.661307, 14.323412], [54.66106, 14.323587], [54.660777, 14.323765], [54.660557, 14.323922], [54.660297, 14.324093], [54.66001, 14.324273], [54.65979, 14.324428], [54.659547, 14.324595], [54.659303, 14.324775], [54.65905, 14.324945], [54.658807, 14.32513], [54.658537, 14.325312], [54.658073, 14.325673], [54.657823, 14.32585], [54.657577, 14.326042], [54.65731, 14.3262], [54.65704, 14.32641], [54.656593, 14.32672], [54.656367, 14.326932], [54.656147, 14.327112], [54.65587, 14.327318], [54.65534, 14.327683], [54.655103, 14.327847], [54.65486, 14.328003], [54.654633, 14.32815], [54.654363, 14.328363], [54.653843, 14.328748], [54.65359, 14.328938], [54.653353, 14.329082]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_cd3ea8329d9626d5dcb651112e2585bb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5aa7b4d498b020d394b00b5a7535a632 = $(`<div id="html_5aa7b4d498b020d394b00b5a7535a632" style="width: 100.0%; height: 100.0%;">DZI-100</div>`)[0];
+                popup_cd3ea8329d9626d5dcb651112e2585bb.setContent(html_5aa7b4d498b020d394b00b5a7535a632);
+            
+        
+
+        poly_line_2a251be39df09c1f26fab416a4da0782.bindPopup(popup_cd3ea8329d9626d5dcb651112e2585bb)
+        ;
+
+        
+    
+    
+            var circle_marker_2bfaa4dee3af80b8c930355332907547 = L.circleMarker(
+                [54.681757, 14.30763],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_ca3b3f95bb698061c6f130914d24405f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_651a4715672998de6c8a119d3082c078 = $(`<div id="html_651a4715672998de6c8a119d3082c078" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #1<br><b>Laikas:</b> 2021-12-17 20:01:43<br><b>Greitis:</b> 4.4 mzg</div>`)[0];
+                popup_ca3b3f95bb698061c6f130914d24405f.setContent(html_651a4715672998de6c8a119d3082c078);
+            
+        
+
+        circle_marker_2bfaa4dee3af80b8c930355332907547.bindPopup(popup_ca3b3f95bb698061c6f130914d24405f)
+        ;
+
+        
+    
+    
+            var circle_marker_009d09e438e517d6b149003235164448 = L.circleMarker(
+                [54.681553, 14.30781],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_0517f03948d0c0b13d26f72961e99fe8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7bee521825bae52556f9533f7d07a0ce = $(`<div id="html_7bee521825bae52556f9533f7d07a0ce" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #2<br><b>Laikas:</b> 2021-12-17 20:01:54<br><b>Greitis:</b> 5.1 mzg</div>`)[0];
+                popup_0517f03948d0c0b13d26f72961e99fe8.setContent(html_7bee521825bae52556f9533f7d07a0ce);
+            
+        
+
+        circle_marker_009d09e438e517d6b149003235164448.bindPopup(popup_0517f03948d0c0b13d26f72961e99fe8)
+        ;
+
+        
+    
+    
+            var circle_marker_d5ae91fb50673311b32dd86fbddddcfe = L.circleMarker(
+                [54.681357, 14.30799],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_2330842a07c59ba8f1d58cc9d43bc2c1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_17c09c94d6290af6ca5a066a217c6e9c = $(`<div id="html_17c09c94d6290af6ca5a066a217c6e9c" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #3<br><b>Laikas:</b> 2021-12-17 20:02:03<br><b>Greitis:</b> 5.0 mzg</div>`)[0];
+                popup_2330842a07c59ba8f1d58cc9d43bc2c1.setContent(html_17c09c94d6290af6ca5a066a217c6e9c);
+            
+        
+
+        circle_marker_d5ae91fb50673311b32dd86fbddddcfe.bindPopup(popup_2330842a07c59ba8f1d58cc9d43bc2c1)
+        ;
+
+        
+    
+    
+            var circle_marker_520bd7ff98ad06fa18d67b08b2b9b4ab = L.circleMarker(
+                [54.681153, 14.308178],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_6fda42c3d582379aa5b0993662bef406 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b911d1cf0b251f28f334398c304fd5bb = $(`<div id="html_b911d1cf0b251f28f334398c304fd5bb" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #4<br><b>Laikas:</b> 2021-12-17 20:02:13<br><b>Greitis:</b> 5.3 mzg</div>`)[0];
+                popup_6fda42c3d582379aa5b0993662bef406.setContent(html_b911d1cf0b251f28f334398c304fd5bb);
+            
+        
+
+        circle_marker_520bd7ff98ad06fa18d67b08b2b9b4ab.bindPopup(popup_6fda42c3d582379aa5b0993662bef406)
+        ;
+
+        
+    
+    
+            var circle_marker_b2d030c6013a473e51a254d90b8c6f8b = L.circleMarker(
+                [54.680933, 14.30836],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_200907eb1c16aecef05c9e254352d8fe = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4ba012a91b7706f01d727e08caf564cc = $(`<div id="html_4ba012a91b7706f01d727e08caf564cc" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #5<br><b>Laikas:</b> 2021-12-17 20:02:23<br><b>Greitis:</b> 5.5 mzg</div>`)[0];
+                popup_200907eb1c16aecef05c9e254352d8fe.setContent(html_4ba012a91b7706f01d727e08caf564cc);
+            
+        
+
+        circle_marker_b2d030c6013a473e51a254d90b8c6f8b.bindPopup(popup_200907eb1c16aecef05c9e254352d8fe)
+        ;
+
+        
+    
+    
+            var circle_marker_d2b8b51a544ed01913d8364395a2858a = L.circleMarker(
+                [54.680273, 14.30891],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_e51acc37ba55cef7459016be8c46e038 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_abb74e3514d76e2270fd191f48f87070 = $(`<div id="html_abb74e3514d76e2270fd191f48f87070" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #6<br><b>Laikas:</b> 2021-12-17 20:02:54<br><b>Greitis:</b> 4.9 mzg</div>`)[0];
+                popup_e51acc37ba55cef7459016be8c46e038.setContent(html_abb74e3514d76e2270fd191f48f87070);
+            
+        
+
+        circle_marker_d2b8b51a544ed01913d8364395a2858a.bindPopup(popup_e51acc37ba55cef7459016be8c46e038)
+        ;
+
+        
+    
+    
+            var circle_marker_63e12bdcb8fcf088e84e7827ce30ced9 = L.circleMarker(
+                [54.68007, 14.309088],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_99f912bb510c705c116ea85a37c529d2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ec0454d720d69ca63ede94d66e967583 = $(`<div id="html_ec0454d720d69ca63ede94d66e967583" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #7<br><b>Laikas:</b> 2021-12-17 20:03:02<br><b>Greitis:</b> 5.8 mzg</div>`)[0];
+                popup_99f912bb510c705c116ea85a37c529d2.setContent(html_ec0454d720d69ca63ede94d66e967583);
+            
+        
+
+        circle_marker_63e12bdcb8fcf088e84e7827ce30ced9.bindPopup(popup_99f912bb510c705c116ea85a37c529d2)
+        ;
+
+        
+    
+    
+            var circle_marker_c5f0f2a46bc1d41c4f0d1be396ea9c24 = L.circleMarker(
+                [54.67982, 14.309288],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_0f41bc54bc947f8094abc2c687de074e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_094b49282290a65f75f65c70001dd4fa = $(`<div id="html_094b49282290a65f75f65c70001dd4fa" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #8<br><b>Laikas:</b> 2021-12-17 20:03:13<br><b>Greitis:</b> 5.8 mzg</div>`)[0];
+                popup_0f41bc54bc947f8094abc2c687de074e.setContent(html_094b49282290a65f75f65c70001dd4fa);
+            
+        
+
+        circle_marker_c5f0f2a46bc1d41c4f0d1be396ea9c24.bindPopup(popup_0f41bc54bc947f8094abc2c687de074e)
+        ;
+
+        
+    
+    
+            var circle_marker_e44b91c9f5ed67e4642ea674fd5541a4 = L.circleMarker(
+                [54.679573, 14.30946],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_81cc5bd2807cbec03daf2fb7b3f2635c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_23818d1828267856c3caf17ccfbc0647 = $(`<div id="html_23818d1828267856c3caf17ccfbc0647" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #9<br><b>Laikas:</b> 2021-12-17 20:03:23<br><b>Greitis:</b> 5.4 mzg</div>`)[0];
+                popup_81cc5bd2807cbec03daf2fb7b3f2635c.setContent(html_23818d1828267856c3caf17ccfbc0647);
+            
+        
+
+        circle_marker_e44b91c9f5ed67e4642ea674fd5541a4.bindPopup(popup_81cc5bd2807cbec03daf2fb7b3f2635c)
+        ;
+
+        
+    
+    
+            var circle_marker_f8125ac8c21aa4341d357abf3eeb002f = L.circleMarker(
+                [54.67912, 14.309825],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_a45d2e080881ceb4fa67a55544db3e0e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a4e1077dc06c2b950c562d4f922da9ad = $(`<div id="html_a4e1077dc06c2b950c562d4f922da9ad" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #10<br><b>Laikas:</b> 2021-12-17 20:03:43<br><b>Greitis:</b> 5.9 mzg</div>`)[0];
+                popup_a45d2e080881ceb4fa67a55544db3e0e.setContent(html_a4e1077dc06c2b950c562d4f922da9ad);
+            
+        
+
+        circle_marker_f8125ac8c21aa4341d357abf3eeb002f.bindPopup(popup_a45d2e080881ceb4fa67a55544db3e0e)
+        ;
+
+        
+    
+    
+            var circle_marker_2fd18657c070e05e9e3e60010339e604 = L.circleMarker(
+                [54.67912, 14.309825],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_12b3aecbbbde9a89d98c55bc205d1e17 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0572a80b47f98fd06827bd93b0cf27e3 = $(`<div id="html_0572a80b47f98fd06827bd93b0cf27e3" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #11<br><b>Laikas:</b> 2021-12-17 20:03:44<br><b>Greitis:</b> 5.9 mzg</div>`)[0];
+                popup_12b3aecbbbde9a89d98c55bc205d1e17.setContent(html_0572a80b47f98fd06827bd93b0cf27e3);
+            
+        
+
+        circle_marker_2fd18657c070e05e9e3e60010339e604.bindPopup(popup_12b3aecbbbde9a89d98c55bc205d1e17)
+        ;
+
+        
+    
+    
+            var circle_marker_337a64f3495fffdad17d01a4c52cb358 = L.circleMarker(
+                [54.678883, 14.310017],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_10b03bf0642064ed6b1aaca7b88d10b9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7edbd8e8b5fded23f6559999ae701382 = $(`<div id="html_7edbd8e8b5fded23f6559999ae701382" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #12<br><b>Laikas:</b> 2021-12-17 20:03:52<br><b>Greitis:</b> 5.8 mzg</div>`)[0];
+                popup_10b03bf0642064ed6b1aaca7b88d10b9.setContent(html_7edbd8e8b5fded23f6559999ae701382);
+            
+        
+
+        circle_marker_337a64f3495fffdad17d01a4c52cb358.bindPopup(popup_10b03bf0642064ed6b1aaca7b88d10b9)
+        ;
+
+        
+    
+    
+            var circle_marker_349fb5232b3433a3ceb42a1f59e0cc38 = L.circleMarker(
+                [54.678657, 14.310185],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_63909102a2898b9ee0d24b22c0578a60 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6bb1ed940e06f3c9a271ca046412bd17 = $(`<div id="html_6bb1ed940e06f3c9a271ca046412bd17" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #13<br><b>Laikas:</b> 2021-12-17 20:04:02<br><b>Greitis:</b> 5.5 mzg</div>`)[0];
+                popup_63909102a2898b9ee0d24b22c0578a60.setContent(html_6bb1ed940e06f3c9a271ca046412bd17);
+            
+        
+
+        circle_marker_349fb5232b3433a3ceb42a1f59e0cc38.bindPopup(popup_63909102a2898b9ee0d24b22c0578a60)
+        ;
+
+        
+    
+    
+            var circle_marker_74c088113bd275fe9f4aefd0f1e5c571 = L.circleMarker(
+                [54.678393, 14.310377],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_06e1206964e49808d0b6276e2dd13ce1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_803c62763e5b047f91fff63a176c33a7 = $(`<div id="html_803c62763e5b047f91fff63a176c33a7" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #14<br><b>Laikas:</b> 2021-12-17 20:04:13<br><b>Greitis:</b> 5.6 mzg</div>`)[0];
+                popup_06e1206964e49808d0b6276e2dd13ce1.setContent(html_803c62763e5b047f91fff63a176c33a7);
+            
+        
+
+        circle_marker_74c088113bd275fe9f4aefd0f1e5c571.bindPopup(popup_06e1206964e49808d0b6276e2dd13ce1)
+        ;
+
+        
+    
+    
+            var circle_marker_b98ed658a1685c16034aeada178ea777 = L.circleMarker(
+                [54.67819, 14.310543],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_f97b184d0761774f8ce18b9ff831a0d3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9b311169d59af82e661aa5be11e65d75 = $(`<div id="html_9b311169d59af82e661aa5be11e65d75" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #15<br><b>Laikas:</b> 2021-12-17 20:04:23<br><b>Greitis:</b> 5.9 mzg</div>`)[0];
+                popup_f97b184d0761774f8ce18b9ff831a0d3.setContent(html_9b311169d59af82e661aa5be11e65d75);
+            
+        
+
+        circle_marker_b98ed658a1685c16034aeada178ea777.bindPopup(popup_f97b184d0761774f8ce18b9ff831a0d3)
+        ;
+
+        
+    
+    
+            var circle_marker_8de2448b1bfc76276300434f5fb49eb5 = L.circleMarker(
+                [54.67772, 14.31093],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_a4b954148c1b460ded859c7ed9280bcc = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_76376e4494983a7c54d734e72e929e30 = $(`<div id="html_76376e4494983a7c54d734e72e929e30" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #16<br><b>Laikas:</b> 2021-12-17 20:04:43<br><b>Greitis:</b> 6.0 mzg</div>`)[0];
+                popup_a4b954148c1b460ded859c7ed9280bcc.setContent(html_76376e4494983a7c54d734e72e929e30);
+            
+        
+
+        circle_marker_8de2448b1bfc76276300434f5fb49eb5.bindPopup(popup_a4b954148c1b460ded859c7ed9280bcc)
+        ;
+
+        
+    
+    
+            var circle_marker_f85715cfc5af364637f902584b5b32b2 = L.circleMarker(
+                [54.67723, 14.3113],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_ea05e0810b97890401f85b26f1a961a1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ed31b97d24d886de72ad0a0deb04ccca = $(`<div id="html_ed31b97d24d886de72ad0a0deb04ccca" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #17<br><b>Laikas:</b> 2021-12-17 20:05:02<br><b>Greitis:</b> 5.5 mzg</div>`)[0];
+                popup_ea05e0810b97890401f85b26f1a961a1.setContent(html_ed31b97d24d886de72ad0a0deb04ccca);
+            
+        
+
+        circle_marker_f85715cfc5af364637f902584b5b32b2.bindPopup(popup_ea05e0810b97890401f85b26f1a961a1)
+        ;
+
+        
+    
+    
+            var circle_marker_0a15e42f36581c9eadcd4a7e0b5ef512 = L.circleMarker(
+                [54.67698, 14.311512],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_3b87f9eec5476595f96e06600c35f2e2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_592c1c0296bc4a7aa9f8e20254d1d8af = $(`<div id="html_592c1c0296bc4a7aa9f8e20254d1d8af" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #18<br><b>Laikas:</b> 2021-12-17 20:05:13<br><b>Greitis:</b> 5.7 mzg</div>`)[0];
+                popup_3b87f9eec5476595f96e06600c35f2e2.setContent(html_592c1c0296bc4a7aa9f8e20254d1d8af);
+            
+        
+
+        circle_marker_0a15e42f36581c9eadcd4a7e0b5ef512.bindPopup(popup_3b87f9eec5476595f96e06600c35f2e2)
+        ;
+
+        
+    
+    
+            var circle_marker_cb8d06f3d9993fa725f4260c4a34c364 = L.circleMarker(
+                [54.676767, 14.311667],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_3a2535d2fb39b2687874e668af3d2737 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ff51e8903de85dfcab315c28a9a10b07 = $(`<div id="html_ff51e8903de85dfcab315c28a9a10b07" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #19<br><b>Laikas:</b> 2021-12-17 20:05:23<br><b>Greitis:</b> 5.8 mzg</div>`)[0];
+                popup_3a2535d2fb39b2687874e668af3d2737.setContent(html_ff51e8903de85dfcab315c28a9a10b07);
+            
+        
+
+        circle_marker_cb8d06f3d9993fa725f4260c4a34c364.bindPopup(popup_3a2535d2fb39b2687874e668af3d2737)
+        ;
+
+        
+    
+    
+            var circle_marker_08e68a91ece77dcfaecb30856870c6ac = L.circleMarker(
+                [54.676303, 14.312035],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_42f9c52c16bb10fa50a20d664b420b47 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e39768cae190f87a7d798d906d5f2328 = $(`<div id="html_e39768cae190f87a7d798d906d5f2328" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #20<br><b>Laikas:</b> 2021-12-17 20:05:43<br><b>Greitis:</b> 5.6 mzg</div>`)[0];
+                popup_42f9c52c16bb10fa50a20d664b420b47.setContent(html_e39768cae190f87a7d798d906d5f2328);
+            
+        
+
+        circle_marker_08e68a91ece77dcfaecb30856870c6ac.bindPopup(popup_42f9c52c16bb10fa50a20d664b420b47)
+        ;
+
+        
+    
+    
+            var circle_marker_e3a56aab3d70c45f7c39faba1110387c = L.circleMarker(
+                [54.676067, 14.312247],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_3fda01a2655eb989f53b7b2edf6af91f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_65b32cd7637757babeaa2626bebc3bbd = $(`<div id="html_65b32cd7637757babeaa2626bebc3bbd" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #21<br><b>Laikas:</b> 2021-12-17 20:05:52<br><b>Greitis:</b> 5.6 mzg</div>`)[0];
+                popup_3fda01a2655eb989f53b7b2edf6af91f.setContent(html_65b32cd7637757babeaa2626bebc3bbd);
+            
+        
+
+        circle_marker_e3a56aab3d70c45f7c39faba1110387c.bindPopup(popup_3fda01a2655eb989f53b7b2edf6af91f)
+        ;
+
+        
+    
+    
+            var circle_marker_55958a1a91e156756d08671391229c42 = L.circleMarker(
+                [54.67583, 14.31245],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_4ba6c98ed8cc35cd5a0118a8ba7ae80e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_606724139803441adc6c0ba66534eab6 = $(`<div id="html_606724139803441adc6c0ba66534eab6" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #22<br><b>Laikas:</b> 2021-12-17 20:06:02<br><b>Greitis:</b> 5.9 mzg</div>`)[0];
+                popup_4ba6c98ed8cc35cd5a0118a8ba7ae80e.setContent(html_606724139803441adc6c0ba66534eab6);
+            
+        
+
+        circle_marker_55958a1a91e156756d08671391229c42.bindPopup(popup_4ba6c98ed8cc35cd5a0118a8ba7ae80e)
+        ;
+
+        
+    
+    
+            var circle_marker_a9959ca0dc748717149e662ed1483b2c = L.circleMarker(
+                [54.675367, 14.312815],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_21ec5d3a68acc5bef54e79e5fc187fbd = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_aa72bad2ca49d012d8c11c79df78dcb7 = $(`<div id="html_aa72bad2ca49d012d8c11c79df78dcb7" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #23<br><b>Laikas:</b> 2021-12-17 20:06:23<br><b>Greitis:</b> 5.3 mzg</div>`)[0];
+                popup_21ec5d3a68acc5bef54e79e5fc187fbd.setContent(html_aa72bad2ca49d012d8c11c79df78dcb7);
+            
+        
+
+        circle_marker_a9959ca0dc748717149e662ed1483b2c.bindPopup(popup_21ec5d3a68acc5bef54e79e5fc187fbd)
+        ;
+
+        
+    
+    
+            var circle_marker_bc1609fefe58b6ce5df09c44ee45d16b = L.circleMarker(
+                [54.67492, 14.31321],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_a1cd78d5cb88ab59d6b6678017279092 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5342e105a50c2d46eef611568530338e = $(`<div id="html_5342e105a50c2d46eef611568530338e" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #24<br><b>Laikas:</b> 2021-12-17 20:06:43<br><b>Greitis:</b> 5.9 mzg</div>`)[0];
+                popup_a1cd78d5cb88ab59d6b6678017279092.setContent(html_5342e105a50c2d46eef611568530338e);
+            
+        
+
+        circle_marker_bc1609fefe58b6ce5df09c44ee45d16b.bindPopup(popup_a1cd78d5cb88ab59d6b6678017279092)
+        ;
+
+        
+    
+    
+            var circle_marker_e7650d5a65886b5d6c7015d12165f011 = L.circleMarker(
+                [54.674457, 14.313633],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_e8f0b6f6c612e55a270628355af87d40 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1d4d0b5431951fd380bad6385dd4a690 = $(`<div id="html_1d4d0b5431951fd380bad6385dd4a690" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #25<br><b>Laikas:</b> 2021-12-17 20:07:02<br><b>Greitis:</b> 5.7 mzg</div>`)[0];
+                popup_e8f0b6f6c612e55a270628355af87d40.setContent(html_1d4d0b5431951fd380bad6385dd4a690);
+            
+        
+
+        circle_marker_e7650d5a65886b5d6c7015d12165f011.bindPopup(popup_e8f0b6f6c612e55a270628355af87d40)
+        ;
+
+        
+    
+    
+            var circle_marker_59660be2b12e5048cac54e1e873c1ab5 = L.circleMarker(
+                [54.673983, 14.314008],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_c70435c94bd8f88c61d3c89dc209657e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a59d6d727b5451ebb8442e2927c6dfa2 = $(`<div id="html_a59d6d727b5451ebb8442e2927c6dfa2" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #26<br><b>Laikas:</b> 2021-12-17 20:07:23<br><b>Greitis:</b> 5.6 mzg</div>`)[0];
+                popup_c70435c94bd8f88c61d3c89dc209657e.setContent(html_a59d6d727b5451ebb8442e2927c6dfa2);
+            
+        
+
+        circle_marker_59660be2b12e5048cac54e1e873c1ab5.bindPopup(popup_c70435c94bd8f88c61d3c89dc209657e)
+        ;
+
+        
+    
+    
+            var circle_marker_525ec9f3134ecbf690ed4d1aa2a26a80 = L.circleMarker(
+                [54.67353, 14.314382],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_735127996638da1a6e7b1db4109c04c5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8c3fc07a22573376a660b8098e502c49 = $(`<div id="html_8c3fc07a22573376a660b8098e502c49" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #27<br><b>Laikas:</b> 2021-12-17 20:07:43<br><b>Greitis:</b> 6.1 mzg</div>`)[0];
+                popup_735127996638da1a6e7b1db4109c04c5.setContent(html_8c3fc07a22573376a660b8098e502c49);
+            
+        
+
+        circle_marker_525ec9f3134ecbf690ed4d1aa2a26a80.bindPopup(popup_735127996638da1a6e7b1db4109c04c5)
+        ;
+
+        
+    
+    
+            var circle_marker_bc32fca9336b316db38d126ed29ef68b = L.circleMarker(
+                [54.673277, 14.314597],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_f95e903d2eacf4a123be9bcb10baa80a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b87a5751b198bb3ff948fda6aff18960 = $(`<div id="html_b87a5751b198bb3ff948fda6aff18960" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #28<br><b>Laikas:</b> 2021-12-17 20:07:53<br><b>Greitis:</b> 5.6 mzg</div>`)[0];
+                popup_f95e903d2eacf4a123be9bcb10baa80a.setContent(html_b87a5751b198bb3ff948fda6aff18960);
+            
+        
+
+        circle_marker_bc32fca9336b316db38d126ed29ef68b.bindPopup(popup_f95e903d2eacf4a123be9bcb10baa80a)
+        ;
+
+        
+    
+    
+            var circle_marker_eb078fe6cda72db72214821de1a2cac6 = L.circleMarker(
+                [54.673063, 14.31476],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_e299eb798c3f55218b819489c644246b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_84da3de542d2762501ec8cf4c0b2007c = $(`<div id="html_84da3de542d2762501ec8cf4c0b2007c" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #29<br><b>Laikas:</b> 2021-12-17 20:08:02<br><b>Greitis:</b> 5.5 mzg</div>`)[0];
+                popup_e299eb798c3f55218b819489c644246b.setContent(html_84da3de542d2762501ec8cf4c0b2007c);
+            
+        
+
+        circle_marker_eb078fe6cda72db72214821de1a2cac6.bindPopup(popup_e299eb798c3f55218b819489c644246b)
+        ;
+
+        
+    
+    
+            var circle_marker_9ad069a2439ee1225d3b15891e7217a5 = L.circleMarker(
+                [54.671877, 14.315763],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_3f8d8c0f5707ce03eea5fdc3cf96a8e2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ce8a0dddb1025d14b065ebf8fd7e9f90 = $(`<div id="html_ce8a0dddb1025d14b065ebf8fd7e9f90" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #30<br><b>Laikas:</b> 2021-12-17 20:08:53<br><b>Greitis:</b> 5.2 mzg</div>`)[0];
+                popup_3f8d8c0f5707ce03eea5fdc3cf96a8e2.setContent(html_ce8a0dddb1025d14b065ebf8fd7e9f90);
+            
+        
+
+        circle_marker_9ad069a2439ee1225d3b15891e7217a5.bindPopup(popup_3f8d8c0f5707ce03eea5fdc3cf96a8e2)
+        ;
+
+        
+    
+    
+            var circle_marker_7d960318db13d2569f41123e09ba7567 = L.circleMarker(
+                [54.671663, 14.315953],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_7b295dc0095999ce9a16e17123150fb7 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8e06069020efd8a15164ac0b46477f4a = $(`<div id="html_8e06069020efd8a15164ac0b46477f4a" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #31<br><b>Laikas:</b> 2021-12-17 20:09:02<br><b>Greitis:</b> 5.8 mzg</div>`)[0];
+                popup_7b295dc0095999ce9a16e17123150fb7.setContent(html_8e06069020efd8a15164ac0b46477f4a);
+            
+        
+
+        circle_marker_7d960318db13d2569f41123e09ba7567.bindPopup(popup_7b295dc0095999ce9a16e17123150fb7)
+        ;
+
+        
+    
+    
+            var circle_marker_3a802795b43fec6cb36b7a9225d3e5e2 = L.circleMarker(
+                [54.671437, 14.316148],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_513261f874842c097aabed3427e88406 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_dca05a349a152f197d126ca9845cc092 = $(`<div id="html_dca05a349a152f197d126ca9845cc092" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #32<br><b>Laikas:</b> 2021-12-17 20:09:12<br><b>Greitis:</b> 5.7 mzg</div>`)[0];
+                popup_513261f874842c097aabed3427e88406.setContent(html_dca05a349a152f197d126ca9845cc092);
+            
+        
+
+        circle_marker_3a802795b43fec6cb36b7a9225d3e5e2.bindPopup(popup_513261f874842c097aabed3427e88406)
+        ;
+
+        
+    
+    
+            var circle_marker_29ab78abe40a568ef80a2b776c9cc97d = L.circleMarker(
+                [54.67117, 14.316353],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_7a38266b975b22b3ce36cba7f2f58d7e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7e9e312783027c8e3a4696f0ecd0c98f = $(`<div id="html_7e9e312783027c8e3a4696f0ecd0c98f" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #33<br><b>Laikas:</b> 2021-12-17 20:09:24<br><b>Greitis:</b> 5.3 mzg</div>`)[0];
+                popup_7a38266b975b22b3ce36cba7f2f58d7e.setContent(html_7e9e312783027c8e3a4696f0ecd0c98f);
+            
+        
+
+        circle_marker_29ab78abe40a568ef80a2b776c9cc97d.bindPopup(popup_7a38266b975b22b3ce36cba7f2f58d7e)
+        ;
+
+        
+    
+    
+            var circle_marker_c5c27a89527a3e3fa9957baf4d3fffb2 = L.circleMarker(
+                [54.67117, 14.316353],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_4e64a4143f243675abe3ad34300290c8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4f7284c89baf54b066d0541fe9de119e = $(`<div id="html_4f7284c89baf54b066d0541fe9de119e" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #34<br><b>Laikas:</b> 2021-12-17 20:09:37<br><b>Greitis:</b> 5.3 mzg</div>`)[0];
+                popup_4e64a4143f243675abe3ad34300290c8.setContent(html_4f7284c89baf54b066d0541fe9de119e);
+            
+        
+
+        circle_marker_c5c27a89527a3e3fa9957baf4d3fffb2.bindPopup(popup_4e64a4143f243675abe3ad34300290c8)
+        ;
+
+        
+    
+    
+            var circle_marker_59d28e37bd6842582fa52b6625a41f73 = L.circleMarker(
+                [54.670713, 14.316705],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_652c8f6b9545b04f20b8068030b31c7d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8e0024cefd1c95b1beaa675776864eb1 = $(`<div id="html_8e0024cefd1c95b1beaa675776864eb1" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #35<br><b>Laikas:</b> 2021-12-17 20:09:43<br><b>Greitis:</b> 5.7 mzg</div>`)[0];
+                popup_652c8f6b9545b04f20b8068030b31c7d.setContent(html_8e0024cefd1c95b1beaa675776864eb1);
+            
+        
+
+        circle_marker_59d28e37bd6842582fa52b6625a41f73.bindPopup(popup_652c8f6b9545b04f20b8068030b31c7d)
+        ;
+
+        
+    
+    
+            var circle_marker_966c48604bb90a3a2bf89bb8dcf6689e = L.circleMarker(
+                [54.67046, 14.316913],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_d42bda0c8b67cdd871f46f8c597cf6a4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ab70a798f9766ff151d7dce9f7a461e6 = $(`<div id="html_ab70a798f9766ff151d7dce9f7a461e6" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #36<br><b>Laikas:</b> 2021-12-17 20:09:53<br><b>Greitis:</b> 5.7 mzg</div>`)[0];
+                popup_d42bda0c8b67cdd871f46f8c597cf6a4.setContent(html_ab70a798f9766ff151d7dce9f7a461e6);
+            
+        
+
+        circle_marker_966c48604bb90a3a2bf89bb8dcf6689e.bindPopup(popup_d42bda0c8b67cdd871f46f8c597cf6a4)
+        ;
+
+        
+    
+    
+            var circle_marker_5e75098cc530b55723a8629aeac6173d = L.circleMarker(
+                [54.67025, 14.31707],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_36c189c86fe1d6a3499112805d0f645d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fd49981defe20e3e32bacb9414fdcf73 = $(`<div id="html_fd49981defe20e3e32bacb9414fdcf73" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #37<br><b>Laikas:</b> 2021-12-17 20:10:02<br><b>Greitis:</b> 5.7 mzg</div>`)[0];
+                popup_36c189c86fe1d6a3499112805d0f645d.setContent(html_fd49981defe20e3e32bacb9414fdcf73);
+            
+        
+
+        circle_marker_5e75098cc530b55723a8629aeac6173d.bindPopup(popup_36c189c86fe1d6a3499112805d0f645d)
+        ;
+
+        
+    
+    
+            var circle_marker_a02b5336e971b6cd543bb257a608608a = L.circleMarker(
+                [54.669517, 14.317642],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_0d4e97e9b69f26c58d4f94626a9e097a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_cee7cd0051e79f6e1616de31ccf87ea6 = $(`<div id="html_cee7cd0051e79f6e1616de31ccf87ea6" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #38<br><b>Laikas:</b> 2021-12-17 20:10:33<br><b>Greitis:</b> 5.4 mzg</div>`)[0];
+                popup_0d4e97e9b69f26c58d4f94626a9e097a.setContent(html_cee7cd0051e79f6e1616de31ccf87ea6);
+            
+        
+
+        circle_marker_a02b5336e971b6cd543bb257a608608a.bindPopup(popup_0d4e97e9b69f26c58d4f94626a9e097a)
+        ;
+
+        
+    
+    
+            var circle_marker_8f8e4b6287c9876e03f8282d43d216fb = L.circleMarker(
+                [54.669303, 14.317778],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_97096b1157f3ac27a5b1bf58bdfc062e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2491b084f0ab8526b3c712ef80667e24 = $(`<div id="html_2491b084f0ab8526b3c712ef80667e24" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #39<br><b>Laikas:</b> 2021-12-17 20:10:43<br><b>Greitis:</b> 5.3 mzg</div>`)[0];
+                popup_97096b1157f3ac27a5b1bf58bdfc062e.setContent(html_2491b084f0ab8526b3c712ef80667e24);
+            
+        
+
+        circle_marker_8f8e4b6287c9876e03f8282d43d216fb.bindPopup(popup_97096b1157f3ac27a5b1bf58bdfc062e)
+        ;
+
+        
+    
+    
+            var circle_marker_06c28ebaa808d9c7e11d74ba3448a83f = L.circleMarker(
+                [54.669043, 14.317995],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_98a862ede84ed7b10818c5d7c353cc28 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b4a26bf8483605d6dbdc05a71a479eee = $(`<div id="html_b4a26bf8483605d6dbdc05a71a479eee" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #40<br><b>Laikas:</b> 2021-12-17 20:10:53<br><b>Greitis:</b> 5.5 mzg</div>`)[0];
+                popup_98a862ede84ed7b10818c5d7c353cc28.setContent(html_b4a26bf8483605d6dbdc05a71a479eee);
+            
+        
+
+        circle_marker_06c28ebaa808d9c7e11d74ba3448a83f.bindPopup(popup_98a862ede84ed7b10818c5d7c353cc28)
+        ;
+
+        
+    
+    
+            var circle_marker_84651db3500c5f35243f08dc4a6c8c25 = L.circleMarker(
+                [54.66881, 14.318168],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_f5b44443a072e25d2478e83c7e79a59f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a8a2b9734b79c0ef30cf6d9dece04407 = $(`<div id="html_a8a2b9734b79c0ef30cf6d9dece04407" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #41<br><b>Laikas:</b> 2021-12-17 20:11:03<br><b>Greitis:</b> 5.5 mzg</div>`)[0];
+                popup_f5b44443a072e25d2478e83c7e79a59f.setContent(html_a8a2b9734b79c0ef30cf6d9dece04407);
+            
+        
+
+        circle_marker_84651db3500c5f35243f08dc4a6c8c25.bindPopup(popup_f5b44443a072e25d2478e83c7e79a59f)
+        ;
+
+        
+    
+    
+            var circle_marker_3a38a3502c1ebb0a0d5f5a3218694aa9 = L.circleMarker(
+                [54.668597, 14.318337],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_b3d811e921d9fa740d6e50f656b4cf75 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c298b3ec3336a18507df37e102ba50a8 = $(`<div id="html_c298b3ec3336a18507df37e102ba50a8" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #42<br><b>Laikas:</b> 2021-12-17 20:11:12<br><b>Greitis:</b> 5.7 mzg</div>`)[0];
+                popup_b3d811e921d9fa740d6e50f656b4cf75.setContent(html_c298b3ec3336a18507df37e102ba50a8);
+            
+        
+
+        circle_marker_3a38a3502c1ebb0a0d5f5a3218694aa9.bindPopup(popup_b3d811e921d9fa740d6e50f656b4cf75)
+        ;
+
+        
+    
+    
+            var circle_marker_5f0c2609b88fd2f555c402e63d3e72df = L.circleMarker(
+                [54.668337, 14.318535],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_93d74923741540cdd43561fd13a1308c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_21394b26497d6558f069dd9ee79a7804 = $(`<div id="html_21394b26497d6558f069dd9ee79a7804" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #43<br><b>Laikas:</b> 2021-12-17 20:11:24<br><b>Greitis:</b> 5.4 mzg</div>`)[0];
+                popup_93d74923741540cdd43561fd13a1308c.setContent(html_21394b26497d6558f069dd9ee79a7804);
+            
+        
+
+        circle_marker_5f0c2609b88fd2f555c402e63d3e72df.bindPopup(popup_93d74923741540cdd43561fd13a1308c)
+        ;
+
+        
+    
+    
+            var circle_marker_3cace52239cd890945994d234dd47e17 = L.circleMarker(
+                [54.66811, 14.318703],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_7cc03a9dd2cb77e184f07fd42b15e920 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_27af2dfaefe99e7f07ae8088c719415a = $(`<div id="html_27af2dfaefe99e7f07ae8088c719415a" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #44<br><b>Laikas:</b> 2021-12-17 20:11:33<br><b>Greitis:</b> 5.7 mzg</div>`)[0];
+                popup_7cc03a9dd2cb77e184f07fd42b15e920.setContent(html_27af2dfaefe99e7f07ae8088c719415a);
+            
+        
+
+        circle_marker_3cace52239cd890945994d234dd47e17.bindPopup(popup_7cc03a9dd2cb77e184f07fd42b15e920)
+        ;
+
+        
+    
+    
+            var circle_marker_c9c4d5c6523a686be373c881b5f3f63c = L.circleMarker(
+                [54.667897, 14.318867],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_73551bcc46764eed351266fc03d6a1c4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8e572a09ea6e4113d1e8f743627970ff = $(`<div id="html_8e572a09ea6e4113d1e8f743627970ff" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #45<br><b>Laikas:</b> 2021-12-17 20:11:43<br><b>Greitis:</b> 5.5 mzg</div>`)[0];
+                popup_73551bcc46764eed351266fc03d6a1c4.setContent(html_8e572a09ea6e4113d1e8f743627970ff);
+            
+        
+
+        circle_marker_c9c4d5c6523a686be373c881b5f3f63c.bindPopup(popup_73551bcc46764eed351266fc03d6a1c4)
+        ;
+
+        
+    
+    
+            var circle_marker_b1fca662e87f2fddcbc30970e1bad035 = L.circleMarker(
+                [54.66767, 14.31905],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_0f66661f552d3937744d0ecb5aad5732 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_cb02105d0aacfacdd722a7ec0e18409a = $(`<div id="html_cb02105d0aacfacdd722a7ec0e18409a" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #46<br><b>Laikas:</b> 2021-12-17 20:11:53<br><b>Greitis:</b> 5.5 mzg</div>`)[0];
+                popup_0f66661f552d3937744d0ecb5aad5732.setContent(html_cb02105d0aacfacdd722a7ec0e18409a);
+            
+        
+
+        circle_marker_b1fca662e87f2fddcbc30970e1bad035.bindPopup(popup_0f66661f552d3937744d0ecb5aad5732)
+        ;
+
+        
+    
+    
+            var circle_marker_3c7b8210463c06daebe2af0957f1cd6f = L.circleMarker(
+                [54.667417, 14.319262],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_588ef768681e93d52a72db4850e4512e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_be10fd795ceacdf834364a31ded1bbef = $(`<div id="html_be10fd795ceacdf834364a31ded1bbef" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #47<br><b>Laikas:</b> 2021-12-17 20:12:03<br><b>Greitis:</b> 5.6 mzg</div>`)[0];
+                popup_588ef768681e93d52a72db4850e4512e.setContent(html_be10fd795ceacdf834364a31ded1bbef);
+            
+        
+
+        circle_marker_3c7b8210463c06daebe2af0957f1cd6f.bindPopup(popup_588ef768681e93d52a72db4850e4512e)
+        ;
+
+        
+    
+    
+            var circle_marker_ac858689bf87d466245ee54d338b8a2a = L.circleMarker(
+                [54.667207, 14.319437],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_a8ccf36b4b9be834aa6d2f0ff8b53756 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b8b901bac659018beabcea95f95b5bc8 = $(`<div id="html_b8b901bac659018beabcea95f95b5bc8" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #48<br><b>Laikas:</b> 2021-12-17 20:12:12<br><b>Greitis:</b> 5.5 mzg</div>`)[0];
+                popup_a8ccf36b4b9be834aa6d2f0ff8b53756.setContent(html_b8b901bac659018beabcea95f95b5bc8);
+            
+        
+
+        circle_marker_ac858689bf87d466245ee54d338b8a2a.bindPopup(popup_a8ccf36b4b9be834aa6d2f0ff8b53756)
+        ;
+
+        
+    
+    
+            var circle_marker_57aefb7b0d975e806dc70abe49cccbc3 = L.circleMarker(
+                [54.666937, 14.319632],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_44d71644afeaa7f01281ef7c42d9f074 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_804de08d9b7a48bfb10c1ea3bd4f802f = $(`<div id="html_804de08d9b7a48bfb10c1ea3bd4f802f" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #49<br><b>Laikas:</b> 2021-12-17 20:12:24<br><b>Greitis:</b> 6.1 mzg</div>`)[0];
+                popup_44d71644afeaa7f01281ef7c42d9f074.setContent(html_804de08d9b7a48bfb10c1ea3bd4f802f);
+            
+        
+
+        circle_marker_57aefb7b0d975e806dc70abe49cccbc3.bindPopup(popup_44d71644afeaa7f01281ef7c42d9f074)
+        ;
+
+        
+    
+    
+            var circle_marker_3b014bac7e8d25640ad0de4408e99697 = L.circleMarker(
+                [54.6667, 14.319815],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_33864a9fd15f0c63e9fb850477036e68 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8b1a9a49c9d95086b5e60caec0ffb8d7 = $(`<div id="html_8b1a9a49c9d95086b5e60caec0ffb8d7" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #50<br><b>Laikas:</b> 2021-12-17 20:12:33<br><b>Greitis:</b> 5.4 mzg</div>`)[0];
+                popup_33864a9fd15f0c63e9fb850477036e68.setContent(html_8b1a9a49c9d95086b5e60caec0ffb8d7);
+            
+        
+
+        circle_marker_3b014bac7e8d25640ad0de4408e99697.bindPopup(popup_33864a9fd15f0c63e9fb850477036e68)
+        ;
+
+        
+    
+    
+            var circle_marker_d0fc718a0054b255ea628d4ceed652fc = L.circleMarker(
+                [54.66649, 14.319962],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_2034516b12367d7a602d0152c8f2dc81 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_969623c8194991f2a12fa0fc0120afeb = $(`<div id="html_969623c8194991f2a12fa0fc0120afeb" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #51<br><b>Laikas:</b> 2021-12-17 20:12:43<br><b>Greitis:</b> 5.9 mzg</div>`)[0];
+                popup_2034516b12367d7a602d0152c8f2dc81.setContent(html_969623c8194991f2a12fa0fc0120afeb);
+            
+        
+
+        circle_marker_d0fc718a0054b255ea628d4ceed652fc.bindPopup(popup_2034516b12367d7a602d0152c8f2dc81)
+        ;
+
+        
+    
+    
+            var circle_marker_15864568efe651a124a4c9859230f1b4 = L.circleMarker(
+                [54.666243, 14.320115],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_5a5fc34f7e000990ad5a0d596b28452f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_14c8f5d101fc8d37317f7ea5f01b5dc4 = $(`<div id="html_14c8f5d101fc8d37317f7ea5f01b5dc4" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #52<br><b>Laikas:</b> 2021-12-17 20:12:53<br><b>Greitis:</b> 5.2 mzg</div>`)[0];
+                popup_5a5fc34f7e000990ad5a0d596b28452f.setContent(html_14c8f5d101fc8d37317f7ea5f01b5dc4);
+            
+        
+
+        circle_marker_15864568efe651a124a4c9859230f1b4.bindPopup(popup_5a5fc34f7e000990ad5a0d596b28452f)
+        ;
+
+        
+    
+    
+            var circle_marker_b17cf1cf28ad2c13b6a297ac852a880b = L.circleMarker(
+                [54.666, 14.32029],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_e00f6bad378e51dbbdfa9c02d66eabd0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a3e9d8c3969e254d2653b2e7fc89558e = $(`<div id="html_a3e9d8c3969e254d2653b2e7fc89558e" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #53<br><b>Laikas:</b> 2021-12-17 20:13:03<br><b>Greitis:</b> 5.0 mzg</div>`)[0];
+                popup_e00f6bad378e51dbbdfa9c02d66eabd0.setContent(html_a3e9d8c3969e254d2653b2e7fc89558e);
+            
+        
+
+        circle_marker_b17cf1cf28ad2c13b6a297ac852a880b.bindPopup(popup_e00f6bad378e51dbbdfa9c02d66eabd0)
+        ;
+
+        
+    
+    
+            var circle_marker_88dbdbfc82268278e7fd067da1708781 = L.circleMarker(
+                [54.665807, 14.320432],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_c0b6f0734c9af2d364c0b0b8b2bc8d38 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c7111dc30829cffa808f99a47cef3952 = $(`<div id="html_c7111dc30829cffa808f99a47cef3952" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #54<br><b>Laikas:</b> 2021-12-17 20:13:12<br><b>Greitis:</b> 5.5 mzg</div>`)[0];
+                popup_c0b6f0734c9af2d364c0b0b8b2bc8d38.setContent(html_c7111dc30829cffa808f99a47cef3952);
+            
+        
+
+        circle_marker_88dbdbfc82268278e7fd067da1708781.bindPopup(popup_c0b6f0734c9af2d364c0b0b8b2bc8d38)
+        ;
+
+        
+    
+    
+            var circle_marker_ab6e2e0159251297a059aaee005c5d5a = L.circleMarker(
+                [54.6653, 14.320785],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_ee68fdc103395ab710cc1ef6a1025aaf = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_37c45a2cfb0fd128838a79111c0f4667 = $(`<div id="html_37c45a2cfb0fd128838a79111c0f4667" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #55<br><b>Laikas:</b> 2021-12-17 20:13:33<br><b>Greitis:</b> 6.2 mzg</div>`)[0];
+                popup_ee68fdc103395ab710cc1ef6a1025aaf.setContent(html_37c45a2cfb0fd128838a79111c0f4667);
+            
+        
+
+        circle_marker_ab6e2e0159251297a059aaee005c5d5a.bindPopup(popup_ee68fdc103395ab710cc1ef6a1025aaf)
+        ;
+
+        
+    
+    
+            var circle_marker_00ced1d3abe002609e807c902296b9a2 = L.circleMarker(
+                [54.66508, 14.320962],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_5c6fa9d3ebc1dd0bb5f9a314221a473e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7427a0a76f6698e72eec7fbc9fb1f86a = $(`<div id="html_7427a0a76f6698e72eec7fbc9fb1f86a" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #56<br><b>Laikas:</b> 2021-12-17 20:13:43<br><b>Greitis:</b> 6.2 mzg</div>`)[0];
+                popup_5c6fa9d3ebc1dd0bb5f9a314221a473e.setContent(html_7427a0a76f6698e72eec7fbc9fb1f86a);
+            
+        
+
+        circle_marker_00ced1d3abe002609e807c902296b9a2.bindPopup(popup_5c6fa9d3ebc1dd0bb5f9a314221a473e)
+        ;
+
+        
+    
+    
+            var circle_marker_7e3ca7e1ba9d2e4eaa5c26c5c48eeb52 = L.circleMarker(
+                [54.66482, 14.321102],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_69acf4e6fcc305fedb204c31c3b654bb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f6cb3cf3d08dd29c5222dd2a95c9dbcc = $(`<div id="html_f6cb3cf3d08dd29c5222dd2a95c9dbcc" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #57<br><b>Laikas:</b> 2021-12-17 20:13:53<br><b>Greitis:</b> 5.5 mzg</div>`)[0];
+                popup_69acf4e6fcc305fedb204c31c3b654bb.setContent(html_f6cb3cf3d08dd29c5222dd2a95c9dbcc);
+            
+        
+
+        circle_marker_7e3ca7e1ba9d2e4eaa5c26c5c48eeb52.bindPopup(popup_69acf4e6fcc305fedb204c31c3b654bb)
+        ;
+
+        
+    
+    
+            var circle_marker_78e074e709795d92c94c2d1ef5ab075a = L.circleMarker(
+                [54.664537, 14.321267],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_b3e44dda1ee33c73f042f08381f8a387 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f31153b611369eed5468801c72094579 = $(`<div id="html_f31153b611369eed5468801c72094579" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #58<br><b>Laikas:</b> 2021-12-17 20:14:03<br><b>Greitis:</b> 5.7 mzg</div>`)[0];
+                popup_b3e44dda1ee33c73f042f08381f8a387.setContent(html_f31153b611369eed5468801c72094579);
+            
+        
+
+        circle_marker_78e074e709795d92c94c2d1ef5ab075a.bindPopup(popup_b3e44dda1ee33c73f042f08381f8a387)
+        ;
+
+        
+    
+    
+            var circle_marker_f5ff02a31c2e555505591e226c6620da = L.circleMarker(
+                [54.664307, 14.321388],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_7c07917b1060834ff1465b913e559577 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1d514e6d069093c155266c3af3c35b16 = $(`<div id="html_1d514e6d069093c155266c3af3c35b16" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #59<br><b>Laikas:</b> 2021-12-17 20:14:13<br><b>Greitis:</b> 6.3 mzg</div>`)[0];
+                popup_7c07917b1060834ff1465b913e559577.setContent(html_1d514e6d069093c155266c3af3c35b16);
+            
+        
+
+        circle_marker_f5ff02a31c2e555505591e226c6620da.bindPopup(popup_7c07917b1060834ff1465b913e559577)
+        ;
+
+        
+    
+    
+            var circle_marker_07d1c51853ae234a7afd5b47a684dca6 = L.circleMarker(
+                [54.664063, 14.321557],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_6e224ccd09a564c016642275cd901db8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3647967521fb01cde854de3a8e7efcd4 = $(`<div id="html_3647967521fb01cde854de3a8e7efcd4" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #60<br><b>Laikas:</b> 2021-12-17 20:14:22<br><b>Greitis:</b> 5.6 mzg</div>`)[0];
+                popup_6e224ccd09a564c016642275cd901db8.setContent(html_3647967521fb01cde854de3a8e7efcd4);
+            
+        
+
+        circle_marker_07d1c51853ae234a7afd5b47a684dca6.bindPopup(popup_6e224ccd09a564c016642275cd901db8)
+        ;
+
+        
+    
+    
+            var circle_marker_30f83bf2a7187baad5545cde511898df = L.circleMarker(
+                [54.663787, 14.321715],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_2e2f3a69ba3ab39b52511f8710d3e0a2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4356957bdc53d06f8f3b6fc8c5812263 = $(`<div id="html_4356957bdc53d06f8f3b6fc8c5812263" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #61<br><b>Laikas:</b> 2021-12-17 20:14:33<br><b>Greitis:</b> 5.8 mzg</div>`)[0];
+                popup_2e2f3a69ba3ab39b52511f8710d3e0a2.setContent(html_4356957bdc53d06f8f3b6fc8c5812263);
+            
+        
+
+        circle_marker_30f83bf2a7187baad5545cde511898df.bindPopup(popup_2e2f3a69ba3ab39b52511f8710d3e0a2)
+        ;
+
+        
+    
+    
+            var circle_marker_984ce612df0399913cf0a72409001e79 = L.circleMarker(
+                [54.66356, 14.321875],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_bd53559c9e231f73e14e51fa1c03bb0b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9ea20eb6eb54953de004a1ed377fc07e = $(`<div id="html_9ea20eb6eb54953de004a1ed377fc07e" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #62<br><b>Laikas:</b> 2021-12-17 20:14:43<br><b>Greitis:</b> 5.4 mzg</div>`)[0];
+                popup_bd53559c9e231f73e14e51fa1c03bb0b.setContent(html_9ea20eb6eb54953de004a1ed377fc07e);
+            
+        
+
+        circle_marker_984ce612df0399913cf0a72409001e79.bindPopup(popup_bd53559c9e231f73e14e51fa1c03bb0b)
+        ;
+
+        
+    
+    
+            var circle_marker_71654210610f93fb2eb30027e69f54da = L.circleMarker(
+                [54.6633, 14.322028],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_46eedfc8cad57c04b7ccb28b2226fdbd = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9cc6da0c108a116b2924948f9abd884f = $(`<div id="html_9cc6da0c108a116b2924948f9abd884f" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #63<br><b>Laikas:</b> 2021-12-17 20:14:53<br><b>Greitis:</b> 6.1 mzg</div>`)[0];
+                popup_46eedfc8cad57c04b7ccb28b2226fdbd.setContent(html_9cc6da0c108a116b2924948f9abd884f);
+            
+        
+
+        circle_marker_71654210610f93fb2eb30027e69f54da.bindPopup(popup_46eedfc8cad57c04b7ccb28b2226fdbd)
+        ;
+
+        
+    
+    
+            var circle_marker_116345ea325dbb20f37377d898be3d1c = L.circleMarker(
+                [54.663013, 14.322202],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_a388e4e173544a43a3007e8142fec832 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e8c813617d1943de1a326ef8e6726701 = $(`<div id="html_e8c813617d1943de1a326ef8e6726701" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #64<br><b>Laikas:</b> 2021-12-17 20:15:04<br><b>Greitis:</b> 6.5 mzg</div>`)[0];
+                popup_a388e4e173544a43a3007e8142fec832.setContent(html_e8c813617d1943de1a326ef8e6726701);
+            
+        
+
+        circle_marker_116345ea325dbb20f37377d898be3d1c.bindPopup(popup_a388e4e173544a43a3007e8142fec832)
+        ;
+
+        
+    
+    
+            var circle_marker_980f13d34ef17bea03a2b65e8f79f41a = L.circleMarker(
+                [54.662543, 14.322482],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_fae182d40a56433b55f4d4b73e01c740 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7022c3178b77d6ea95bdb9a5e141de74 = $(`<div id="html_7022c3178b77d6ea95bdb9a5e141de74" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #65<br><b>Laikas:</b> 2021-12-17 20:15:22<br><b>Greitis:</b> 4.7 mzg</div>`)[0];
+                popup_fae182d40a56433b55f4d4b73e01c740.setContent(html_7022c3178b77d6ea95bdb9a5e141de74);
+            
+        
+
+        circle_marker_980f13d34ef17bea03a2b65e8f79f41a.bindPopup(popup_fae182d40a56433b55f4d4b73e01c740)
+        ;
+
+        
+    
+    
+            var circle_marker_7131fd0beaf450ee3e231555c7b3c6ef = L.circleMarker(
+                [54.662273, 14.322692],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_f7bff611294eac7c69080d9cc3d3ddf4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0a82f160631e38df094453466de4de45 = $(`<div id="html_0a82f160631e38df094453466de4de45" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #66<br><b>Laikas:</b> 2021-12-17 20:15:33<br><b>Greitis:</b> 5.9 mzg</div>`)[0];
+                popup_f7bff611294eac7c69080d9cc3d3ddf4.setContent(html_0a82f160631e38df094453466de4de45);
+            
+        
+
+        circle_marker_7131fd0beaf450ee3e231555c7b3c6ef.bindPopup(popup_f7bff611294eac7c69080d9cc3d3ddf4)
+        ;
+
+        
+    
+    
+            var circle_marker_0c71d140c847ea455853248809fd622f = L.circleMarker(
+                [54.662053, 14.32284],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_52a119e78d75cf3fc4a7af2b5e5aedcd = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5bbd06253124d909a3cad2a117ac107b = $(`<div id="html_5bbd06253124d909a3cad2a117ac107b" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #67<br><b>Laikas:</b> 2021-12-17 20:15:43<br><b>Greitis:</b> 6.2 mzg</div>`)[0];
+                popup_52a119e78d75cf3fc4a7af2b5e5aedcd.setContent(html_5bbd06253124d909a3cad2a117ac107b);
+            
+        
+
+        circle_marker_0c71d140c847ea455853248809fd622f.bindPopup(popup_52a119e78d75cf3fc4a7af2b5e5aedcd)
+        ;
+
+        
+    
+    
+            var circle_marker_5a4175d3b3f67025829a8c3f89ec2db5 = L.circleMarker(
+                [54.662053, 14.32284],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_6dc5b6bf05b64a5e43e56943bba45bb8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8fc503fb30d5cab28768511679138944 = $(`<div id="html_8fc503fb30d5cab28768511679138944" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #68<br><b>Laikas:</b> 2021-12-17 20:15:44<br><b>Greitis:</b> 6.2 mzg</div>`)[0];
+                popup_6dc5b6bf05b64a5e43e56943bba45bb8.setContent(html_8fc503fb30d5cab28768511679138944);
+            
+        
+
+        circle_marker_5a4175d3b3f67025829a8c3f89ec2db5.bindPopup(popup_6dc5b6bf05b64a5e43e56943bba45bb8)
+        ;
+
+        
+    
+    
+            var circle_marker_ebdba5977096b4cee4f3127bb2371d90 = L.circleMarker(
+                [54.6618, 14.323013],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_8f101f18be53af3bb7c9e1b94ec1c8a1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_baeec7d2fb717c724972772537be22d2 = $(`<div id="html_baeec7d2fb717c724972772537be22d2" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #69<br><b>Laikas:</b> 2021-12-17 20:15:53<br><b>Greitis:</b> 5.9 mzg</div>`)[0];
+                popup_8f101f18be53af3bb7c9e1b94ec1c8a1.setContent(html_baeec7d2fb717c724972772537be22d2);
+            
+        
+
+        circle_marker_ebdba5977096b4cee4f3127bb2371d90.bindPopup(popup_8f101f18be53af3bb7c9e1b94ec1c8a1)
+        ;
+
+        
+    
+    
+            var circle_marker_80a6e78cfb62a7eaa8c0081ac2de1980 = L.circleMarker(
+                [54.661533, 14.323225],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_1a9696e86b9aef8b86d2aeaedb46b897 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3d6ac19174eb91f9798f1eb49da4590b = $(`<div id="html_3d6ac19174eb91f9798f1eb49da4590b" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #70<br><b>Laikas:</b> 2021-12-17 20:16:04<br><b>Greitis:</b> 5.7 mzg</div>`)[0];
+                popup_1a9696e86b9aef8b86d2aeaedb46b897.setContent(html_3d6ac19174eb91f9798f1eb49da4590b);
+            
+        
+
+        circle_marker_80a6e78cfb62a7eaa8c0081ac2de1980.bindPopup(popup_1a9696e86b9aef8b86d2aeaedb46b897)
+        ;
+
+        
+    
+    
+            var circle_marker_68e41170c5b46af6937775dfa882247d = L.circleMarker(
+                [54.661307, 14.323412],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_86ca7ce6b4197283ddc5b65e251e3563 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_55632635a86a2d0365cc0e4137d57257 = $(`<div id="html_55632635a86a2d0365cc0e4137d57257" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #71<br><b>Laikas:</b> 2021-12-17 20:16:13<br><b>Greitis:</b> 6.0 mzg</div>`)[0];
+                popup_86ca7ce6b4197283ddc5b65e251e3563.setContent(html_55632635a86a2d0365cc0e4137d57257);
+            
+        
+
+        circle_marker_68e41170c5b46af6937775dfa882247d.bindPopup(popup_86ca7ce6b4197283ddc5b65e251e3563)
+        ;
+
+        
+    
+    
+            var circle_marker_2aca30f30675520514a59c4a79099260 = L.circleMarker(
+                [54.66106, 14.323587],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_d70cbe9450b286afe96104d40787e55b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a01ca459fea943dd1c1bac8c15443f41 = $(`<div id="html_a01ca459fea943dd1c1bac8c15443f41" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #72<br><b>Laikas:</b> 2021-12-17 20:16:22<br><b>Greitis:</b> 5.7 mzg</div>`)[0];
+                popup_d70cbe9450b286afe96104d40787e55b.setContent(html_a01ca459fea943dd1c1bac8c15443f41);
+            
+        
+
+        circle_marker_2aca30f30675520514a59c4a79099260.bindPopup(popup_d70cbe9450b286afe96104d40787e55b)
+        ;
+
+        
+    
+    
+            var circle_marker_89f244357e9d88ee2664d61407019b2c = L.circleMarker(
+                [54.660777, 14.323765],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_7126795bc2e068af8cb6823887e3280c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f2a29e24fd78a1c5e1533feb03345939 = $(`<div id="html_f2a29e24fd78a1c5e1533feb03345939" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #73<br><b>Laikas:</b> 2021-12-17 20:16:33<br><b>Greitis:</b> 5.8 mzg</div>`)[0];
+                popup_7126795bc2e068af8cb6823887e3280c.setContent(html_f2a29e24fd78a1c5e1533feb03345939);
+            
+        
+
+        circle_marker_89f244357e9d88ee2664d61407019b2c.bindPopup(popup_7126795bc2e068af8cb6823887e3280c)
+        ;
+
+        
+    
+    
+            var circle_marker_c69d7ad6096f1ce3af6c2f58b45642eb = L.circleMarker(
+                [54.660557, 14.323922],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_76b8ae0ca5321ee7964539b4f74435a0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_07c9f1ec42dbaffb57ebd865d132370c = $(`<div id="html_07c9f1ec42dbaffb57ebd865d132370c" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #74<br><b>Laikas:</b> 2021-12-17 20:16:43<br><b>Greitis:</b> 6.2 mzg</div>`)[0];
+                popup_76b8ae0ca5321ee7964539b4f74435a0.setContent(html_07c9f1ec42dbaffb57ebd865d132370c);
+            
+        
+
+        circle_marker_c69d7ad6096f1ce3af6c2f58b45642eb.bindPopup(popup_76b8ae0ca5321ee7964539b4f74435a0)
+        ;
+
+        
+    
+    
+            var circle_marker_416cca0921b00bd4bf2329b363752510 = L.circleMarker(
+                [54.660297, 14.324093],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_65a43d9ad3534c6f48ce5470dbe17006 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_056a81fddbe532fd2dc60bad5cd16f3d = $(`<div id="html_056a81fddbe532fd2dc60bad5cd16f3d" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #75<br><b>Laikas:</b> 2021-12-17 20:16:53<br><b>Greitis:</b> 6.2 mzg</div>`)[0];
+                popup_65a43d9ad3534c6f48ce5470dbe17006.setContent(html_056a81fddbe532fd2dc60bad5cd16f3d);
+            
+        
+
+        circle_marker_416cca0921b00bd4bf2329b363752510.bindPopup(popup_65a43d9ad3534c6f48ce5470dbe17006)
+        ;
+
+        
+    
+    
+            var circle_marker_7743bf6cb692b880708ae6e093158ddd = L.circleMarker(
+                [54.66001, 14.324273],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_af14ccb15b93deff44de54155ea93c4a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ff1e0c4453cffcab41aa481aa26b7e21 = $(`<div id="html_ff1e0c4453cffcab41aa481aa26b7e21" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #76<br><b>Laikas:</b> 2021-12-17 20:17:04<br><b>Greitis:</b> 6.3 mzg</div>`)[0];
+                popup_af14ccb15b93deff44de54155ea93c4a.setContent(html_ff1e0c4453cffcab41aa481aa26b7e21);
+            
+        
+
+        circle_marker_7743bf6cb692b880708ae6e093158ddd.bindPopup(popup_af14ccb15b93deff44de54155ea93c4a)
+        ;
+
+        
+    
+    
+            var circle_marker_a44ca57385e52458692b0faa00bdec76 = L.circleMarker(
+                [54.65979, 14.324428],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_c0d88c97eb794375fa7bae2dae03302a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d63a65832ed7b1b8c0a7ffa8a8ac6213 = $(`<div id="html_d63a65832ed7b1b8c0a7ffa8a8ac6213" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #77<br><b>Laikas:</b> 2021-12-17 20:17:13<br><b>Greitis:</b> 5.9 mzg</div>`)[0];
+                popup_c0d88c97eb794375fa7bae2dae03302a.setContent(html_d63a65832ed7b1b8c0a7ffa8a8ac6213);
+            
+        
+
+        circle_marker_a44ca57385e52458692b0faa00bdec76.bindPopup(popup_c0d88c97eb794375fa7bae2dae03302a)
+        ;
+
+        
+    
+    
+            var circle_marker_6470c059545b904760d001ea5c3632d6 = L.circleMarker(
+                [54.659547, 14.324595],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_22b3faaf1e1850c2079aacb4b09d52af = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a7b6f5f7f64ab284b5d9724e0eade806 = $(`<div id="html_a7b6f5f7f64ab284b5d9724e0eade806" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #78<br><b>Laikas:</b> 2021-12-17 20:17:22<br><b>Greitis:</b> 5.8 mzg</div>`)[0];
+                popup_22b3faaf1e1850c2079aacb4b09d52af.setContent(html_a7b6f5f7f64ab284b5d9724e0eade806);
+            
+        
+
+        circle_marker_6470c059545b904760d001ea5c3632d6.bindPopup(popup_22b3faaf1e1850c2079aacb4b09d52af)
+        ;
+
+        
+    
+    
+            var circle_marker_6d0b7c8cf3b5ed23b0984ac7e08e01df = L.circleMarker(
+                [54.659303, 14.324775],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_e4541009d7c40097baf87994ea0b90cb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e5f6df8e23942a971861aba090168a93 = $(`<div id="html_e5f6df8e23942a971861aba090168a93" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #79<br><b>Laikas:</b> 2021-12-17 20:17:32<br><b>Greitis:</b> 6.3 mzg</div>`)[0];
+                popup_e4541009d7c40097baf87994ea0b90cb.setContent(html_e5f6df8e23942a971861aba090168a93);
+            
+        
+
+        circle_marker_6d0b7c8cf3b5ed23b0984ac7e08e01df.bindPopup(popup_e4541009d7c40097baf87994ea0b90cb)
+        ;
+
+        
+    
+    
+            var circle_marker_278abd1b4f54943cc74f725e67dd51ae = L.circleMarker(
+                [54.65905, 14.324945],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_14390ee13ddd977bebc06f8d5cb71d53 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fcb71686da648f3a17bbcdab36b816b0 = $(`<div id="html_fcb71686da648f3a17bbcdab36b816b0" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #80<br><b>Laikas:</b> 2021-12-17 20:17:43<br><b>Greitis:</b> 5.8 mzg</div>`)[0];
+                popup_14390ee13ddd977bebc06f8d5cb71d53.setContent(html_fcb71686da648f3a17bbcdab36b816b0);
+            
+        
+
+        circle_marker_278abd1b4f54943cc74f725e67dd51ae.bindPopup(popup_14390ee13ddd977bebc06f8d5cb71d53)
+        ;
+
+        
+    
+    
+            var circle_marker_561c450ecb71a914e4747b2b9084a2ea = L.circleMarker(
+                [54.658807, 14.32513],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_af1a27def727b89607bcf2404faa10ce = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b9a957c8eb85f3f4d2b8b91241835636 = $(`<div id="html_b9a957c8eb85f3f4d2b8b91241835636" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #81<br><b>Laikas:</b> 2021-12-17 20:17:53<br><b>Greitis:</b> 6.0 mzg</div>`)[0];
+                popup_af1a27def727b89607bcf2404faa10ce.setContent(html_b9a957c8eb85f3f4d2b8b91241835636);
+            
+        
+
+        circle_marker_561c450ecb71a914e4747b2b9084a2ea.bindPopup(popup_af1a27def727b89607bcf2404faa10ce)
+        ;
+
+        
+    
+    
+            var circle_marker_7da7ecd3891acfec3edb015bd899c880 = L.circleMarker(
+                [54.658537, 14.325312],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_67dbee9d60ebe1f9ddbb5a438b77937c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7b897156867f029dee90acafdd72655d = $(`<div id="html_7b897156867f029dee90acafdd72655d" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #82<br><b>Laikas:</b> 2021-12-17 20:18:04<br><b>Greitis:</b> 6.2 mzg</div>`)[0];
+                popup_67dbee9d60ebe1f9ddbb5a438b77937c.setContent(html_7b897156867f029dee90acafdd72655d);
+            
+        
+
+        circle_marker_7da7ecd3891acfec3edb015bd899c880.bindPopup(popup_67dbee9d60ebe1f9ddbb5a438b77937c)
+        ;
+
+        
+    
+    
+            var circle_marker_e34a00cdef0735acba13c24f80c49510 = L.circleMarker(
+                [54.658073, 14.325673],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_dd0bdaca1a47952561f4a9cfd89c829f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_55fa35d5c438743dd28129c76d892809 = $(`<div id="html_55fa35d5c438743dd28129c76d892809" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #83<br><b>Laikas:</b> 2021-12-17 20:18:22<br><b>Greitis:</b> 5.4 mzg</div>`)[0];
+                popup_dd0bdaca1a47952561f4a9cfd89c829f.setContent(html_55fa35d5c438743dd28129c76d892809);
+            
+        
+
+        circle_marker_e34a00cdef0735acba13c24f80c49510.bindPopup(popup_dd0bdaca1a47952561f4a9cfd89c829f)
+        ;
+
+        
+    
+    
+            var circle_marker_75dae98159068d855b6f7d99b8413f8c = L.circleMarker(
+                [54.657823, 14.32585],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_181c2e5021f5a819cc809ee23e15096a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_93fdb8fdb62a8e76da351da9917e96e3 = $(`<div id="html_93fdb8fdb62a8e76da351da9917e96e3" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #84<br><b>Laikas:</b> 2021-12-17 20:18:32<br><b>Greitis:</b> 5.5 mzg</div>`)[0];
+                popup_181c2e5021f5a819cc809ee23e15096a.setContent(html_93fdb8fdb62a8e76da351da9917e96e3);
+            
+        
+
+        circle_marker_75dae98159068d855b6f7d99b8413f8c.bindPopup(popup_181c2e5021f5a819cc809ee23e15096a)
+        ;
+
+        
+    
+    
+            var circle_marker_2f7213c996366a0aee75aead17a90263 = L.circleMarker(
+                [54.657577, 14.326042],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_2e7ebf0e52787d64cc7f8310f3a86c16 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2e305e91a7a2b8d1d0f6f60290edf9e0 = $(`<div id="html_2e305e91a7a2b8d1d0f6f60290edf9e0" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #85<br><b>Laikas:</b> 2021-12-17 20:18:43<br><b>Greitis:</b> 6.3 mzg</div>`)[0];
+                popup_2e7ebf0e52787d64cc7f8310f3a86c16.setContent(html_2e305e91a7a2b8d1d0f6f60290edf9e0);
+            
+        
+
+        circle_marker_2f7213c996366a0aee75aead17a90263.bindPopup(popup_2e7ebf0e52787d64cc7f8310f3a86c16)
+        ;
+
+        
+    
+    
+            var circle_marker_e1809b43deaa543a21cf44f34f0c775b = L.circleMarker(
+                [54.65731, 14.3262],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_cf64e8a7381cd32b32f1de9e8da3ca03 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_30dacccfe3bde658b08b0da7b83092fb = $(`<div id="html_30dacccfe3bde658b08b0da7b83092fb" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #86<br><b>Laikas:</b> 2021-12-17 20:18:53<br><b>Greitis:</b> 5.8 mzg</div>`)[0];
+                popup_cf64e8a7381cd32b32f1de9e8da3ca03.setContent(html_30dacccfe3bde658b08b0da7b83092fb);
+            
+        
+
+        circle_marker_e1809b43deaa543a21cf44f34f0c775b.bindPopup(popup_cf64e8a7381cd32b32f1de9e8da3ca03)
+        ;
+
+        
+    
+    
+            var circle_marker_816e82025ad3fd13ac086e4847439f96 = L.circleMarker(
+                [54.65704, 14.32641],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_770d9e5867fc08402502fb58c2635be3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_cb8f4fff2911eb31bfcac77d453c227d = $(`<div id="html_cb8f4fff2911eb31bfcac77d453c227d" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #87<br><b>Laikas:</b> 2021-12-17 20:19:04<br><b>Greitis:</b> 6.7 mzg</div>`)[0];
+                popup_770d9e5867fc08402502fb58c2635be3.setContent(html_cb8f4fff2911eb31bfcac77d453c227d);
+            
+        
+
+        circle_marker_816e82025ad3fd13ac086e4847439f96.bindPopup(popup_770d9e5867fc08402502fb58c2635be3)
+        ;
+
+        
+    
+    
+            var circle_marker_647927968970c6988e52d1e48f265363 = L.circleMarker(
+                [54.656593, 14.32672],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_df2f6d0512802d9782a89b1e46b8430f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_265d75daa5e14e469feb3c127c236c77 = $(`<div id="html_265d75daa5e14e469feb3c127c236c77" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #88<br><b>Laikas:</b> 2021-12-17 20:19:22<br><b>Greitis:</b> 5.6 mzg</div>`)[0];
+                popup_df2f6d0512802d9782a89b1e46b8430f.setContent(html_265d75daa5e14e469feb3c127c236c77);
+            
+        
+
+        circle_marker_647927968970c6988e52d1e48f265363.bindPopup(popup_df2f6d0512802d9782a89b1e46b8430f)
+        ;
+
+        
+    
+    
+            var circle_marker_cb250f82c2392245b66ad3ea48901288 = L.circleMarker(
+                [54.656367, 14.326932],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_268c83474b16040d36c3957d8a6c210e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4c71e8e4517677c856a7bcbfe7dd64c2 = $(`<div id="html_4c71e8e4517677c856a7bcbfe7dd64c2" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #89<br><b>Laikas:</b> 2021-12-17 20:19:32<br><b>Greitis:</b> 5.6 mzg</div>`)[0];
+                popup_268c83474b16040d36c3957d8a6c210e.setContent(html_4c71e8e4517677c856a7bcbfe7dd64c2);
+            
+        
+
+        circle_marker_cb250f82c2392245b66ad3ea48901288.bindPopup(popup_268c83474b16040d36c3957d8a6c210e)
+        ;
+
+        
+    
+    
+            var circle_marker_998afed366fc30956e8646282446d5a3 = L.circleMarker(
+                [54.656147, 14.327112],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_4980ce1ba99ace1565bad17f3235f56b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_efeb3f021871428b8d44cd8d6e8439e7 = $(`<div id="html_efeb3f021871428b8d44cd8d6e8439e7" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #90<br><b>Laikas:</b> 2021-12-17 20:19:42<br><b>Greitis:</b> 6.7 mzg</div>`)[0];
+                popup_4980ce1ba99ace1565bad17f3235f56b.setContent(html_efeb3f021871428b8d44cd8d6e8439e7);
+            
+        
+
+        circle_marker_998afed366fc30956e8646282446d5a3.bindPopup(popup_4980ce1ba99ace1565bad17f3235f56b)
+        ;
+
+        
+    
+    
+            var circle_marker_e2bb2114ae55394d0383ab0d55db64e4 = L.circleMarker(
+                [54.65587, 14.327318],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_27c99c7192cb060e5ee80cb759578725 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_eb3957b8469d041d2d42d5e4839522fc = $(`<div id="html_eb3957b8469d041d2d42d5e4839522fc" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #91<br><b>Laikas:</b> 2021-12-17 20:19:53<br><b>Greitis:</b> 5.8 mzg</div>`)[0];
+                popup_27c99c7192cb060e5ee80cb759578725.setContent(html_eb3957b8469d041d2d42d5e4839522fc);
+            
+        
+
+        circle_marker_e2bb2114ae55394d0383ab0d55db64e4.bindPopup(popup_27c99c7192cb060e5ee80cb759578725)
+        ;
+
+        
+    
+    
+            var circle_marker_716895600f2c635e9e2deda4b7203ac8 = L.circleMarker(
+                [54.65534, 14.327683],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_f3975106cc02d4ca972a7de903bc0f62 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_dff4a9b00789527e160190d645d14057 = $(`<div id="html_dff4a9b00789527e160190d645d14057" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #92<br><b>Laikas:</b> 2021-12-17 20:20:13<br><b>Greitis:</b> 6.2 mzg</div>`)[0];
+                popup_f3975106cc02d4ca972a7de903bc0f62.setContent(html_dff4a9b00789527e160190d645d14057);
+            
+        
+
+        circle_marker_716895600f2c635e9e2deda4b7203ac8.bindPopup(popup_f3975106cc02d4ca972a7de903bc0f62)
+        ;
+
+        
+    
+    
+            var circle_marker_30cc73a63a42b1a9d46f13dd0dc74a27 = L.circleMarker(
+                [54.655103, 14.327847],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_62f068ff067944948c72b9203a9eb475 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_629e053ed928e3802b31f7292f51424a = $(`<div id="html_629e053ed928e3802b31f7292f51424a" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #93<br><b>Laikas:</b> 2021-12-17 20:20:22<br><b>Greitis:</b> 6.2 mzg</div>`)[0];
+                popup_62f068ff067944948c72b9203a9eb475.setContent(html_629e053ed928e3802b31f7292f51424a);
+            
+        
+
+        circle_marker_30cc73a63a42b1a9d46f13dd0dc74a27.bindPopup(popup_62f068ff067944948c72b9203a9eb475)
+        ;
+
+        
+    
+    
+            var circle_marker_95aaf86d27017e67030cd95210989cdc = L.circleMarker(
+                [54.65486, 14.328003],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_322ef508c6177d7442672f517bee6fe1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7673b493b40ce29f1db275bcf9e77719 = $(`<div id="html_7673b493b40ce29f1db275bcf9e77719" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #94<br><b>Laikas:</b> 2021-12-17 20:20:32<br><b>Greitis:</b> 6.3 mzg</div>`)[0];
+                popup_322ef508c6177d7442672f517bee6fe1.setContent(html_7673b493b40ce29f1db275bcf9e77719);
+            
+        
+
+        circle_marker_95aaf86d27017e67030cd95210989cdc.bindPopup(popup_322ef508c6177d7442672f517bee6fe1)
+        ;
+
+        
+    
+    
+            var circle_marker_be186190d05397d87afd81a9e3b0d0d9 = L.circleMarker(
+                [54.654633, 14.32815],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_d1d32d03c8b000880f8d76fa9fcce17d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f4cb540e5262dfd75c92878d035099af = $(`<div id="html_f4cb540e5262dfd75c92878d035099af" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #95<br><b>Laikas:</b> 2021-12-17 20:20:42<br><b>Greitis:</b> 5.5 mzg</div>`)[0];
+                popup_d1d32d03c8b000880f8d76fa9fcce17d.setContent(html_f4cb540e5262dfd75c92878d035099af);
+            
+        
+
+        circle_marker_be186190d05397d87afd81a9e3b0d0d9.bindPopup(popup_d1d32d03c8b000880f8d76fa9fcce17d)
+        ;
+
+        
+    
+    
+            var circle_marker_23bcb2963f0c962dff33da64c832b14e = L.circleMarker(
+                [54.654363, 14.328363],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_08891290604dd4bfbbf96891af56dc57 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a6b078aceadbfeea344b9ac68c97e747 = $(`<div id="html_a6b078aceadbfeea344b9ac68c97e747" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #96<br><b>Laikas:</b> 2021-12-17 20:20:53<br><b>Greitis:</b> 5.8 mzg</div>`)[0];
+                popup_08891290604dd4bfbbf96891af56dc57.setContent(html_a6b078aceadbfeea344b9ac68c97e747);
+            
+        
+
+        circle_marker_23bcb2963f0c962dff33da64c832b14e.bindPopup(popup_08891290604dd4bfbbf96891af56dc57)
+        ;
+
+        
+    
+    
+            var circle_marker_3955633c2888f9fc79b5de8d5b220191 = L.circleMarker(
+                [54.653843, 14.328748],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_bb125d1ce7016fe58870cdf05fe2e751 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6292a18776d23170f0ad7a7117a8a625 = $(`<div id="html_6292a18776d23170f0ad7a7117a8a625" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #97<br><b>Laikas:</b> 2021-12-17 20:21:13<br><b>Greitis:</b> 5.1 mzg</div>`)[0];
+                popup_bb125d1ce7016fe58870cdf05fe2e751.setContent(html_6292a18776d23170f0ad7a7117a8a625);
+            
+        
+
+        circle_marker_3955633c2888f9fc79b5de8d5b220191.bindPopup(popup_bb125d1ce7016fe58870cdf05fe2e751)
+        ;
+
+        
+    
+    
+            var circle_marker_4553a62f9312d0386da55d2573f36ad3 = L.circleMarker(
+                [54.65359, 14.328938],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_7f05f0063e0e803d23643ad88c4c3bc9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c8b4913e49f01dcde393ff886b51f8d3 = $(`<div id="html_c8b4913e49f01dcde393ff886b51f8d3" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #98<br><b>Laikas:</b> 2021-12-17 20:21:23<br><b>Greitis:</b> 6.1 mzg</div>`)[0];
+                popup_7f05f0063e0e803d23643ad88c4c3bc9.setContent(html_c8b4913e49f01dcde393ff886b51f8d3);
+            
+        
+
+        circle_marker_4553a62f9312d0386da55d2573f36ad3.bindPopup(popup_7f05f0063e0e803d23643ad88c4c3bc9)
+        ;
+
+        
+    
+    
+            var circle_marker_60d4e0138999d7da5c1ae111d4548591 = L.circleMarker(
+                [54.653353, 14.329082],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_8a238e684f36fad09db442948fb09f52 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_254b99b65c481687652e3f27463c7b0b = $(`<div id="html_254b99b65c481687652e3f27463c7b0b" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-100<br><b>Taškas:</b> #99<br><b>Laikas:</b> 2021-12-17 20:21:32<br><b>Greitis:</b> 6.6 mzg</div>`)[0];
+                popup_8a238e684f36fad09db442948fb09f52.setContent(html_254b99b65c481687652e3f27463c7b0b);
+            
+        
+
+        circle_marker_60d4e0138999d7da5c1ae111d4548591.bindPopup(popup_8a238e684f36fad09db442948fb09f52)
+        ;
+
+        
+    
+    
+            var poly_line_c873d760739c9c5a78cb10376f3a478b = L.polyline(
+                [[54.668662, 14.317997], [54.656862, 14.326038], [54.656243, 14.326725], [54.655383, 14.327293]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_d9f139172617509a460c26eb05f6cda4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bb8b9989b133b56c8afd68abc4c91f37 = $(`<div id="html_bb8b9989b133b56c8afd68abc4c91f37" style="width: 100.0%; height: 100.0%;">DZI-10</div>`)[0];
+                popup_d9f139172617509a460c26eb05f6cda4.setContent(html_bb8b9989b133b56c8afd68abc4c91f37);
+            
+        
+
+        poly_line_c873d760739c9c5a78cb10376f3a478b.bindPopup(popup_d9f139172617509a460c26eb05f6cda4)
+        ;
+
+        
+    
+    
+            var circle_marker_618e7e635445c0af35fb24e71f52640a = L.circleMarker(
+                [54.668662, 14.317997],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_6700cfd1a075441f6967054fe993a9c4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c223ce89496b1ed2c1436fd96ee314aa = $(`<div id="html_c223ce89496b1ed2c1436fd96ee314aa" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-10<br><b>Taškas:</b> #1<br><b>Laikas:</b> 2021-12-17 20:11:36<br><b>Greitis:</b> 5.8 mzg</div>`)[0];
+                popup_6700cfd1a075441f6967054fe993a9c4.setContent(html_c223ce89496b1ed2c1436fd96ee314aa);
+            
+        
+
+        circle_marker_618e7e635445c0af35fb24e71f52640a.bindPopup(popup_6700cfd1a075441f6967054fe993a9c4)
+        ;
+
+        
+    
+    
+            var circle_marker_1a6c6c6504c4745d945e116a0618b9b3 = L.circleMarker(
+                [54.656862, 14.326038],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_d8b4700915f7b15cb21c49d74905e04c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6ed9e73ab69ea4c2e27ec282cc2a0f43 = $(`<div id="html_6ed9e73ab69ea4c2e27ec282cc2a0f43" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-10<br><b>Taškas:</b> #2<br><b>Laikas:</b> 2021-12-17 20:19:34<br><b>Greitis:</b> 5.9 mzg</div>`)[0];
+                popup_d8b4700915f7b15cb21c49d74905e04c.setContent(html_6ed9e73ab69ea4c2e27ec282cc2a0f43);
+            
+        
+
+        circle_marker_1a6c6c6504c4745d945e116a0618b9b3.bindPopup(popup_d8b4700915f7b15cb21c49d74905e04c)
+        ;
+
+        
+    
+    
+            var circle_marker_2148b018b84d5e71c202b75bf5ea1057 = L.circleMarker(
+                [54.656243, 14.326725],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_d80bf2c3622606245cc88f470486dd0a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_87ae5665958d321cc31a5f1d62008325 = $(`<div id="html_87ae5665958d321cc31a5f1d62008325" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-10<br><b>Taškas:</b> #3<br><b>Laikas:</b> 2021-12-17 20:20:02<br><b>Greitis:</b> 5.8 mzg</div>`)[0];
+                popup_d80bf2c3622606245cc88f470486dd0a.setContent(html_87ae5665958d321cc31a5f1d62008325);
+            
+        
+
+        circle_marker_2148b018b84d5e71c202b75bf5ea1057.bindPopup(popup_d80bf2c3622606245cc88f470486dd0a)
+        ;
+
+        
+    
+    
+            var circle_marker_c62c1334b5c7ac4f8a66d0f518d5f689 = L.circleMarker(
+                [54.655383, 14.327293],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+        var popup_6c002c828fdcf3b0e89458607f282c12 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5bf1acee8ac3e6abe708f1bc90606116 = $(`<div id="html_5bf1acee8ac3e6abe708f1bc90606116" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> DZI-10<br><b>Taškas:</b> #4<br><b>Laikas:</b> 2021-12-17 20:20:35<br><b>Greitis:</b> 5.6 mzg</div>`)[0];
+                popup_6c002c828fdcf3b0e89458607f282c12.setContent(html_5bf1acee8ac3e6abe708f1bc90606116);
+            
+        
+
+        circle_marker_c62c1334b5c7ac4f8a66d0f518d5f689.bindPopup(popup_6c002c828fdcf3b0e89458607f282c12)
+        ;
+
+        
+    
+    
+            var marker_a4592231a3cab05dd7fcb664e43dbe38 = L.marker(
+                [54.6667, 14.319815],
+                {
+}
+            ).addTo(map_e883682f3e488f4e1aa385fb939be912);
+        
+    
+            var icon_8e62428d4de1084844a0c1cd39bc1d4b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "exclamation-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ac903f993c232bd3f9d66e103a2bf4bb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b3eff9b8dca8713722f025d51f956e82 = $(`<div id="html_b3eff9b8dca8713722f025d51f956e82" style="width: 100.0%; height: 100.0%;"><b>KULMINACIJA</b><br>Atstumas: 0.041222965492417364 m</div>`)[0];
+                popup_ac903f993c232bd3f9d66e103a2bf4bb.setContent(html_b3eff9b8dca8713722f025d51f956e82);
+            
+        
+
+        marker_a4592231a3cab05dd7fcb664e43dbe38.bindPopup(popup_ac903f993c232bd3f9d66e103a2bf4bb)
+        ;
+
+        
+    
+    
+                marker_a4592231a3cab05dd7fcb664e43dbe38.setIcon(icon_8e62428d4de1084844a0c1cd39bc1d4b);
+            
+</script>
+</html>
