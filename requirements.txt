@@ -1,0 +1,19 @@
+# =====================================================================
+# AIS TaskNr4 priklausomybės (requirements.txt)
+# =====================================================================
+
+# --- BIG DATA APDOROJIMAS ---
+# Versija privalo idealiai sutapti su nurodyta Dockerfile
+pyspark==4.1.1
+
+# --- MATEMATIKA IR GRAFIKA (script3) ---
+# Naudojama laivų telemetrijos (greičio/kurso) grafikų braižymui prieš pat incidentą
+matplotlib>=3.8.0
+
+# --- GEOGRAFINĖ VIZUALIZACIJA (script3) ---
+# Interaktyvių OpenStreetMap žemėlapių generavimui su laivų trajektorijomis
+folium>=0.16.0
+
+# --- ATASKAITŲ ŠABLONAI (script4) ---
+# Pramoninis HTML šablonų variklis
+jinja2>=3.1.0

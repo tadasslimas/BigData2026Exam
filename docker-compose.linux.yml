@@ -1,0 +1,48 @@
+services:
+  ais-analysis-task4-v11:
+    container_name: ais-analysis-task4-v11
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: "ais-analysis-task4-v11:${CODE_VERSION}"
+    
+    # Išlaikome host tinklą, kad veiktų paskirstytas klasteris tinkle
+    # Tuo pačiu pasiekiamos tinklo paslaugos tiek į išorę, tiek ir iš išorės
+    # Privaloma sąlyga esant DISTRIBUTED pyspark naudojimui
+    network_mode: "host"
+
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+
+    volumes:
+      - ${HOST_INPUT_DATA_DIR}:/app/data/Input_Data:ro,z
+      - ${HOST_INTERIM_DATA_DIR}:/app/data/Interim_Files:rw,z # :z pritaiko SELinux teises Fedora sistemoms
+      - ${HOST_REPORTS_DATA_DIR}:/app/data/Reports:rw,z
+      - ${HOST_MASTER_PARQUET_DIR}:/app/data/Master_Lake:rw,z
+      - ./src:/app/src:rw,z
+
+    tmpfs:
+      - /tmp/spark-local:size=64G,uid=0,gid=0 ### Labai dideliems duomenų masyvams rekomenduojama padidinti tmp dydį iki 64GB (bet žiūrėkite, kiek lieka laisvos RAM)
+
+    environment:
+      - CODE_VERSION=${CODE_VERSION}
+      - SPARK_MASTER_PUBLIC_IP=${SPARK_MASTER_PUBLIC_IP}
+      - AIS_CENTER_LAT=${TARGET_CENTER_LAT}
+      - AIS_CENTER_LON=${TARGET_CENTER_LON}
+      - AIS_MAX_DIST_NM=${TARGET_MAX_DISTANCE_NM}
+      - SPARK_DRIVER_MEMORY=${SPARK_LOCAL_DRIVER_MEMORY}
+      - SPARK_OFFHEAP_SIZE=${SPARK_LOCAL_OFFHEAP_SIZE}
+      - SPARK_LOCAL_CORES=${SPARK_LOCAL_CORES}
+      - DISTRIBUTED_MODE=${USING_DISTRIBUTED_CALCULATION}
+      - REPORT_TOP_N_EVENTS=${REPORT_TOP_N_EVENTS}
+      - REPORT_MASTER_TITLE=${REPORT_MASTER_TITLE}
+      - REPORT_HTML_FILENAME=${REPORT_HTML_FILENAME}
+      - CONTAINER_INPUT_PATH=${CONTAINER_INPUT_PATH}
+      - CONTAINER_INTERIM_PATH=${CONTAINER_INTERIM_PATH}
+      - CONTAINER_REPORTS_PATH=${CONTAINER_REPORTS_PATH}
+      - CONTAINER_MASTER_LAKE_PATH=/app/data/Master_Lake
+      - SPARK_LOCAL_IP=${SPARK_DRIVER_PHYSICAL_IP}
+      - SPARK_DRIVER_HOST=${SPARK_DRIVER_PHYSICAL_IP}
+

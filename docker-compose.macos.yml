@@ -1,0 +1,56 @@
+
+services:
+  ais-analysis-task4p:
+    container_name: ais-analysis-task4p
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: "ais-analysis-task4p:${CODE_VERSION}"
+    
+#### vartotojo teisių emuliavimas Mac aplinkoje
+    user: "root"   
+
+#### macOS Docker Desktop aplinkoje privaloma naudoti bridge režimą
+    network_mode: "bridge"
+
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+
+    volumes:
+      - ${HOST_INPUT_DATA_DIR}:/app/data/Input_Data:ro
+      - ${HOST_INTERIM_DATA_DIR}:/app/data/Interim_Files:rw # :z pritaiko SELinux teises Fedora sistemoms
+      - ${HOST_REPORTS_DATA_DIR}:/app/data/Reports:rw
+      - ${HOST_MASTER_PARQUET_DIR}:/app/data/Master_Lake:rw
+      - ./src:/app/src:rw
+####  Naudojame izoliuotą Docker Volume, kad neišpūstume Mac SSD disko
+      - spark-mac-temp:/tmp/spark-local
+
+    environment:
+      - CODE_VERSION=${CODE_VERSION}
+      - SPARK_MASTER_PUBLIC_IP=${SPARK_MASTER_PUBLIC_IP}
+      - AIS_CENTER_LAT=${TARGET_CENTER_LAT}
+      - AIS_CENTER_LON=${TARGET_CENTER_LON}
+      - AIS_MAX_DIST_NM=${TARGET_MAX_DISTANCE_NM}
+      - SPARK_DRIVER_MEMORY=${SPARK_LOCAL_DRIVER_MEMORY}
+      - SPARK_OFFHEAP_SIZE=${SPARK_LOCAL_OFFHEAP_SIZE}
+      - SPARK_LOCAL_CORES=${SPARK_LOCAL_CORES}
+      - DISTRIBUTED_MODE=${USING_DISTRIBUTED_CALCULATION}
+      - REPORT_TOP_N_EVENTS=${REPORT_TOP_N_EVENTS}
+      - REPORT_MASTER_TITLE=${REPORT_MASTER_TITLE}
+      - REPORT_HTML_FILENAME=${REPORT_HTML_FILENAME}
+      - CONTAINER_INPUT_PATH=${CONTAINER_INPUT_PATH}
+      - CONTAINER_INTERIM_PATH=${CONTAINER_INTERIM_PATH}
+      - CONTAINER_REPORTS_PATH=${CONTAINER_REPORTS_PATH}
+      - CONTAINER_MASTER_LAKE_PATH=/app/data/Master_Lake
+# Priverstinis tinklo lizdų nukreipimas Mac vidiniam darbui
+      - SPARK_LOCAL_IP=127.0.0.1
+#### ==============
+####  Sparm Master IP adresas privalomas tuomet kuomet naudojamas paskirstyti skaičiavimai
+#### ==============
+      - SPARK_DRIVER_HOST=${SPARK_DRIVER_PHYSICAL_IP}
+
+volumes:
+  spark-mac-temp:
+
