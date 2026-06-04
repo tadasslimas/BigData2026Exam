@@ -68,8 +68,8 @@ Projekte naudojami atskiri docker-compose failai, nes operacinės sistemos skiri
 2. Laikinoji atmintis: Linux naudoja tmpfs (RAM diską) greičiui, macOS – named volume saugumui.
 3. Saugumas: Fedora/Linux reikalauja :z vėliavėlės SELinux teisėms.
 Individualaus paleidimo instrukcija:
-• Linux: docker compose --env-file environment.common.env --env-file environment.linux.env -f docker-compose.linux.yml up --build
-• macOS: docker compose --env-file environment.common.env --env-file environment.macos.env -f docker-compose.macos.yml up --build
+- Linux: docker compose --env-file environment.common.env --env-file environment.linux.env -f docker-compose.linux.yml up --build
+- macOS: docker compose --env-file environment.common.env --env-file environment.macos.env -f docker-compose.macos.yml up --build
 
 🛠️ Sistemos paleidimas (Cross-Platform)
 Projektas sukurtas taip, kad galėtų veikti vienodai tiek Linux (p510 serveris bei w520/w541 darbo stotys), tiek macOS (MacBook Air/Pro) aplinkose. 
@@ -95,10 +95,10 @@ Reikalavimai:
 
 Patarimas: Prieš paleidžiant, visada užtikrinkite, kad nurodyti keliai fiziškai egzistuoja ir/arba pasiekiami jūsų kompiuteryje.
 Keliai naudoti ruošiant v11.0.4 versiją naudoti tokie:
-HOST_MASTER_PARQUET_DIR=../AIS_Task4_Analysis/AIS_DB.Parquet
-HOST_INTERIM_DATA_DIR=../AIS_Task4_Analysis/Interim_Files
-HOST_REPORTS_DATA_DIR=./Analysis_and_Reports
-HOST_INPUT_DATA_DIR=/opt/A/NFS_Folder/TaskNr4/AIS_DB.CSV <- dėl didelės duomenų apimties (~53GB) duomenys saugomi centralizuotame NFS serveryje. 
+- HOST_MASTER_PARQUET_DIR=../AIS_Task4_Analysis/AIS_DB.Parquet
+- HOST_INTERIM_DATA_DIR=../AIS_Task4_Analysis/Interim_Files
+- HOST_REPORTS_DATA_DIR=./Analysis_and_Reports
+- HOST_INPUT_DATA_DIR=/opt/A/NFS_Folder/TaskNr4/AIS_DB.CSV <- dėl didelės duomenų apimties (~53GB) duomenys saugomi centralizuotame NFS serveryje. 
 
 Testavimui bandytas ir tinkle esantis NAS įrenginys, kuris pasiekiamas per 1Gbps tinklo prieigą bei naudojantis AFP, SMB arba NFSv3 tinklo protokolus. 
 Naudotas NFSv3 protokolas leidžia vartotojams ir programoms pasiekti bei bendrinti failus nuotoliniame serveryje per kompiuterių tinklą tarp Linux ir MacOS taip, lyg jie būtų saugomi vietiniame kompiuterio diske.
@@ -108,6 +108,7 @@ Sistemą galima paleisti read-only režimu tais atvejais, kuomet CSV duomenys ja
 Tuo tikslu src/pipeline_runner.py išjungti "script0_convert_to_parquet.py" konvertavimo kodo veikimą.
 Kodo veikimas tokiame modelyje buvo atliktas saugant duomenis NAS įrenginyje, kodą leidžiant Linux bei MacOS klientuose.
 Kelias kur yra saugomi Parquet failai nurodytas taip:
+
 HOST_MASTER_PARQUET_DIR=/Volumes/VolumeA/Tado_Mokslai/TaskNr4/AIS_DB.Parquet
 
 
