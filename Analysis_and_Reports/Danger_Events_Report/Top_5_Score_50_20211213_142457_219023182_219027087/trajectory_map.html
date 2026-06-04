@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_1c992d6035d2c858295ce7695107f867 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+     <div style="position: fixed; bottom: 50px; left: 50px; width: 220px; height: 160px;
+     border:2px solid grey; z-index:9999; font-size:14px; background-color:white; opacity: 0.9; padding: 10px;">
+     <b>Rizikos balas: <span style="color:red;">50</span></b><br>
+     <b>Greitis (SOG):</b><br>
+     <i style="background:green;width:12px;height:12px;float:left;margin-right:5px;border-radius:50%;"></i> &gt; 12 mzg<br>
+     <i style="background:yellow;width:12px;height:12px;float:left;margin-right:5px;border-radius:50%;"></i> 5 - 12 mzg<br>
+     <i style="background:orange;width:12px;height:12px;float:left;margin-right:5px;border-radius:50%;"></i> 1 - 5 mzg<br>
+     <i style="background:red;width:12px;height:12px;float:left;margin-right:5px;border-radius:50%;"></i> 0.1 - 1 mzg<br>
+     <i style="background:blue;width:12px;height:12px;float:left;margin-right:5px;border-radius:50%;"></i> &lt; 0.1 mzg<br>
+     <br>
+     <span style="color:grey;">--- CHARVIL</span><br>
+     <span style="color:black;"><b>— NYBOLIG</b></span>
+     </div>
+     
+    
+            <div class="folium-map" id="map_1c992d6035d2c858295ce7695107f867" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_1c992d6035d2c858295ce7695107f867 = L.map(
+                "map_1c992d6035d2c858295ce7695107f867",
+                {
+                    center: [55.060318, 15.148062],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 15,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_944892534a9e24d8e7077f4be4a37fcb = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_944892534a9e24d8e7077f4be4a37fcb.addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+            var poly_line_d3cea13e910ac9e3eaeca745623904d9 = L.polyline(
+                [[55.055813, 15.15293], [55.055472, 15.151203], [55.055388, 15.151005], [55.055325, 15.150912], [55.055228, 15.1508], [55.055228, 15.1508], [55.05532, 15.150378], [55.055725, 15.15017], [55.056147, 15.149978], [55.05703, 15.149577], [55.057883, 15.149183], [55.058393, 15.14899], [55.058887, 15.148632], [55.060318, 15.148062], [55.060318, 15.148062], [55.060318, 15.148062], [55.06131, 15.147867], [55.061808, 15.147693], [55.062327, 15.147372], [55.063245, 15.146748], [55.063732, 15.146398], [55.06413, 15.145878], [55.064505, 15.145228], [55.064838, 15.14459], [55.0652, 15.143862], [55.065388, 15.143097], [55.065388, 15.143097], [55.065375, 15.142173], [55.065375, 15.142173], [55.065282, 15.141328], [55.064998, 15.140515]],
+                {"bubblingMouseEvents": true, "color": "grey", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "grey", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_b4a9b43e455087167915ec42792e47d9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f8ddff81c2e430ca47ca2fc079a27bdb = $(`<div id="html_f8ddff81c2e430ca47ca2fc079a27bdb" style="width: 100.0%; height: 100.0%;">CHARVIL</div>`)[0];
+                popup_b4a9b43e455087167915ec42792e47d9.setContent(html_f8ddff81c2e430ca47ca2fc079a27bdb);
+            
+        
+
+        poly_line_d3cea13e910ac9e3eaeca745623904d9.bindPopup(popup_b4a9b43e455087167915ec42792e47d9)
+        ;
+
+        
+    
+    
+            var circle_marker_40c6f0b28a7770ee86cc3104d15b45c6 = L.circleMarker(
+                [55.055813, 15.15293],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_1222811368a3cecca23dcaf092da07c4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c0914c5827ecc2e9c808c20db2a87f35 = $(`<div id="html_c0914c5827ecc2e9c808c20db2a87f35" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #1<br><b>Laikas:</b> 2021-12-13 14:15:26<br><b>Greitis:</b> 10.9 mzg</div>`)[0];
+                popup_1222811368a3cecca23dcaf092da07c4.setContent(html_c0914c5827ecc2e9c808c20db2a87f35);
+            
+        
+
+        circle_marker_40c6f0b28a7770ee86cc3104d15b45c6.bindPopup(popup_1222811368a3cecca23dcaf092da07c4)
+        ;
+
+        
+    
+    
+            var circle_marker_96721c562b4dcf8eaed95826d15cdf26 = L.circleMarker(
+                [55.055472, 15.151203],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_3d0b2e5443590fde1ee0959e3a9f62ae = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_291143dbcd648d845395630c36de968d = $(`<div id="html_291143dbcd648d845395630c36de968d" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #2<br><b>Laikas:</b> 2021-12-13 14:15:56<br><b>Greitis:</b> 1.3 mzg</div>`)[0];
+                popup_3d0b2e5443590fde1ee0959e3a9f62ae.setContent(html_291143dbcd648d845395630c36de968d);
+            
+        
+
+        circle_marker_96721c562b4dcf8eaed95826d15cdf26.bindPopup(popup_3d0b2e5443590fde1ee0959e3a9f62ae)
+        ;
+
+        
+    
+    
+            var circle_marker_eca4ffc435fda54cd037b63db6e515e4 = L.circleMarker(
+                [55.055388, 15.151005],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_c55205dd1be1822b3de9a60db17a3451 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8653eaf4845c30cfd9c5529c20b0353e = $(`<div id="html_8653eaf4845c30cfd9c5529c20b0353e" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #3<br><b>Laikas:</b> 2021-12-13 14:16:29<br><b>Greitis:</b> 0.5 mzg</div>`)[0];
+                popup_c55205dd1be1822b3de9a60db17a3451.setContent(html_8653eaf4845c30cfd9c5529c20b0353e);
+            
+        
+
+        circle_marker_eca4ffc435fda54cd037b63db6e515e4.bindPopup(popup_c55205dd1be1822b3de9a60db17a3451)
+        ;
+
+        
+    
+    
+            var circle_marker_21d2163629b2cedb5826996dafdecf9e = L.circleMarker(
+                [55.055325, 15.150912],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_a73c9c6bf2b8421221e49241dccd4353 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_cb7b1829324961f9943ad915fc06beca = $(`<div id="html_cb7b1829324961f9943ad915fc06beca" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #4<br><b>Laikas:</b> 2021-12-13 14:16:58<br><b>Greitis:</b> 0.2 mzg</div>`)[0];
+                popup_a73c9c6bf2b8421221e49241dccd4353.setContent(html_cb7b1829324961f9943ad915fc06beca);
+            
+        
+
+        circle_marker_21d2163629b2cedb5826996dafdecf9e.bindPopup(popup_a73c9c6bf2b8421221e49241dccd4353)
+        ;
+
+        
+    
+    
+            var circle_marker_23d1b845e3353e71092133e2a53e947c = L.circleMarker(
+                [55.055228, 15.1508],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_905cecb1a9ea20518a16598d2e483c02 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_50c197be8414e5a6d90038af3000f89c = $(`<div id="html_50c197be8414e5a6d90038af3000f89c" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #5<br><b>Laikas:</b> 2021-12-13 14:17:26<br><b>Greitis:</b> 2.3 mzg</div>`)[0];
+                popup_905cecb1a9ea20518a16598d2e483c02.setContent(html_50c197be8414e5a6d90038af3000f89c);
+            
+        
+
+        circle_marker_23d1b845e3353e71092133e2a53e947c.bindPopup(popup_905cecb1a9ea20518a16598d2e483c02)
+        ;
+
+        
+    
+    
+            var circle_marker_4787347d3076f8354cf31083a0b441cc = L.circleMarker(
+                [55.055228, 15.1508],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_f8e6f3ce42c73eb9e2c18728c28f6dad = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2925a2ca4532b1a85a0bc77af814d1f8 = $(`<div id="html_2925a2ca4532b1a85a0bc77af814d1f8" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #6<br><b>Laikas:</b> 2021-12-13 14:17:47<br><b>Greitis:</b> 2.3 mzg</div>`)[0];
+                popup_f8e6f3ce42c73eb9e2c18728c28f6dad.setContent(html_2925a2ca4532b1a85a0bc77af814d1f8);
+            
+        
+
+        circle_marker_4787347d3076f8354cf31083a0b441cc.bindPopup(popup_f8e6f3ce42c73eb9e2c18728c28f6dad)
+        ;
+
+        
+    
+    
+            var circle_marker_3c232b37f6655ad462a2493830b07b47 = L.circleMarker(
+                [55.05532, 15.150378],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_acd8ad900ef681007a310448a7179325 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b5d8b7e4bba14d42470d5d68227ba968 = $(`<div id="html_b5d8b7e4bba14d42470d5d68227ba968" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #7<br><b>Laikas:</b> 2021-12-13 14:17:56<br><b>Greitis:</b> 2.5 mzg</div>`)[0];
+                popup_acd8ad900ef681007a310448a7179325.setContent(html_b5d8b7e4bba14d42470d5d68227ba968);
+            
+        
+
+        circle_marker_3c232b37f6655ad462a2493830b07b47.bindPopup(popup_acd8ad900ef681007a310448a7179325)
+        ;
+
+        
+    
+    
+            var circle_marker_7abef2fce06625d3c113c0b2bdfb51f3 = L.circleMarker(
+                [55.055725, 15.15017],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_0d3202ba0139890ad190d7abef873a37 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1f25e1f5284c06fefed2d157da9f4807 = $(`<div id="html_1f25e1f5284c06fefed2d157da9f4807" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #8<br><b>Laikas:</b> 2021-12-13 14:18:26<br><b>Greitis:</b> 3.1 mzg</div>`)[0];
+                popup_0d3202ba0139890ad190d7abef873a37.setContent(html_1f25e1f5284c06fefed2d157da9f4807);
+            
+        
+
+        circle_marker_7abef2fce06625d3c113c0b2bdfb51f3.bindPopup(popup_0d3202ba0139890ad190d7abef873a37)
+        ;
+
+        
+    
+    
+            var circle_marker_834a686a47aac5361efcdcb2d8c7d648 = L.circleMarker(
+                [55.056147, 15.149978],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_23069f27ffe23e957109cc8fb74802c9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1b38a639a5a49c8e910e9d63ea16001b = $(`<div id="html_1b38a639a5a49c8e910e9d63ea16001b" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #9<br><b>Laikas:</b> 2021-12-13 14:18:57<br><b>Greitis:</b> 3.1 mzg</div>`)[0];
+                popup_23069f27ffe23e957109cc8fb74802c9.setContent(html_1b38a639a5a49c8e910e9d63ea16001b);
+            
+        
+
+        circle_marker_834a686a47aac5361efcdcb2d8c7d648.bindPopup(popup_23069f27ffe23e957109cc8fb74802c9)
+        ;
+
+        
+    
+    
+            var circle_marker_8e9d96dea6b8f593238ccbd70c40ba2b = L.circleMarker(
+                [55.05703, 15.149577],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_ee903301999aacc563c56dfaf190e8e5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d1082aa6c9776738fdb7bccf8e384702 = $(`<div id="html_d1082aa6c9776738fdb7bccf8e384702" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #10<br><b>Laikas:</b> 2021-12-13 14:19:58<br><b>Greitis:</b> 2.8 mzg</div>`)[0];
+                popup_ee903301999aacc563c56dfaf190e8e5.setContent(html_d1082aa6c9776738fdb7bccf8e384702);
+            
+        
+
+        circle_marker_8e9d96dea6b8f593238ccbd70c40ba2b.bindPopup(popup_ee903301999aacc563c56dfaf190e8e5)
+        ;
+
+        
+    
+    
+            var circle_marker_4e3fca663bd20806d5c2fa2675f294cf = L.circleMarker(
+                [55.057883, 15.149183],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_0c3478574737209ee6b97c38624cdf3b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0c6bde6035f40feff6fccda920affec7 = $(`<div id="html_0c6bde6035f40feff6fccda920affec7" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #11<br><b>Laikas:</b> 2021-12-13 14:20:56<br><b>Greitis:</b> 3.6 mzg</div>`)[0];
+                popup_0c3478574737209ee6b97c38624cdf3b.setContent(html_0c6bde6035f40feff6fccda920affec7);
+            
+        
+
+        circle_marker_4e3fca663bd20806d5c2fa2675f294cf.bindPopup(popup_0c3478574737209ee6b97c38624cdf3b)
+        ;
+
+        
+    
+    
+            var circle_marker_ca6a37ea0efaeaae84393daedffb7dc0 = L.circleMarker(
+                [55.058393, 15.14899],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_4a96e96a843fd35348febd8b7b6509cd = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bef75d1deac648911a46215851106d46 = $(`<div id="html_bef75d1deac648911a46215851106d46" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #12<br><b>Laikas:</b> 2021-12-13 14:21:27<br><b>Greitis:</b> 3.6 mzg</div>`)[0];
+                popup_4a96e96a843fd35348febd8b7b6509cd.setContent(html_bef75d1deac648911a46215851106d46);
+            
+        
+
+        circle_marker_ca6a37ea0efaeaae84393daedffb7dc0.bindPopup(popup_4a96e96a843fd35348febd8b7b6509cd)
+        ;
+
+        
+    
+    
+            var circle_marker_d7824afd6841e6875629b3f4d70018af = L.circleMarker(
+                [55.058887, 15.148632],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_cf5181eacc07e7e68dd30dac207745a1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4edf7cf4e14f77b85d6729feffe067b5 = $(`<div id="html_4edf7cf4e14f77b85d6729feffe067b5" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #13<br><b>Laikas:</b> 2021-12-13 14:21:59<br><b>Greitis:</b> 3.6 mzg</div>`)[0];
+                popup_cf5181eacc07e7e68dd30dac207745a1.setContent(html_4edf7cf4e14f77b85d6729feffe067b5);
+            
+        
+
+        circle_marker_d7824afd6841e6875629b3f4d70018af.bindPopup(popup_cf5181eacc07e7e68dd30dac207745a1)
+        ;
+
+        
+    
+    
+            var circle_marker_25d2a1fe6c4048c286747b6a50c8cb87 = L.circleMarker(
+                [55.060318, 15.148062],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_2f3311ee40b3e88fb8ae83655defc538 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2bec675c332ddd16ba66358896c7bb58 = $(`<div id="html_2bec675c332ddd16ba66358896c7bb58" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #14<br><b>Laikas:</b> 2021-12-13 14:23:27<br><b>Greitis:</b> 3.4 mzg</div>`)[0];
+                popup_2f3311ee40b3e88fb8ae83655defc538.setContent(html_2bec675c332ddd16ba66358896c7bb58);
+            
+        
+
+        circle_marker_25d2a1fe6c4048c286747b6a50c8cb87.bindPopup(popup_2f3311ee40b3e88fb8ae83655defc538)
+        ;
+
+        
+    
+    
+            var circle_marker_dca240be5561fb0061a10abbd8979b0f = L.circleMarker(
+                [55.060318, 15.148062],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_31aa624b7d4f0c4a532100afbcf92b50 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3186616067602a925e04068bf300ac7d = $(`<div id="html_3186616067602a925e04068bf300ac7d" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #15<br><b>Laikas:</b> 2021-12-13 14:23:47<br><b>Greitis:</b> 3.4 mzg</div>`)[0];
+                popup_31aa624b7d4f0c4a532100afbcf92b50.setContent(html_3186616067602a925e04068bf300ac7d);
+            
+        
+
+        circle_marker_dca240be5561fb0061a10abbd8979b0f.bindPopup(popup_31aa624b7d4f0c4a532100afbcf92b50)
+        ;
+
+        
+    
+    
+            var circle_marker_f5783a4c84c65122f21664166f1e570f = L.circleMarker(
+                [55.060318, 15.148062],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_e4bde0bd8635603fcd3daf2e65e8e053 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ff9877c1e52eb346dcb3b4f3dd3abcc3 = $(`<div id="html_ff9877c1e52eb346dcb3b4f3dd3abcc3" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #16<br><b>Laikas:</b> 2021-12-13 14:23:57<br><b>Greitis:</b> 3.4 mzg</div>`)[0];
+                popup_e4bde0bd8635603fcd3daf2e65e8e053.setContent(html_ff9877c1e52eb346dcb3b4f3dd3abcc3);
+            
+        
+
+        circle_marker_f5783a4c84c65122f21664166f1e570f.bindPopup(popup_e4bde0bd8635603fcd3daf2e65e8e053)
+        ;
+
+        
+    
+    
+            var circle_marker_95e1e47f4cf0895a10b7f48383007594 = L.circleMarker(
+                [55.06131, 15.147867],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_2e812b87de45e5e809e2287a16847d89 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d300194087e1913e2f3d078eb4532065 = $(`<div id="html_d300194087e1913e2f3d078eb4532065" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #17<br><b>Laikas:</b> 2021-12-13 14:24:26<br><b>Greitis:</b> 3.7 mzg</div>`)[0];
+                popup_2e812b87de45e5e809e2287a16847d89.setContent(html_d300194087e1913e2f3d078eb4532065);
+            
+        
+
+        circle_marker_95e1e47f4cf0895a10b7f48383007594.bindPopup(popup_2e812b87de45e5e809e2287a16847d89)
+        ;
+
+        
+    
+    
+            var circle_marker_a101ccea7942de9613e2009c1b954d07 = L.circleMarker(
+                [55.061808, 15.147693],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_37737ae95c8f91af5b77754176e2e133 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3663fcb9bd72efb037dd23b66c4c2af0 = $(`<div id="html_3663fcb9bd72efb037dd23b66c4c2af0" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #18<br><b>Laikas:</b> 2021-12-13 14:24:57<br><b>Greitis:</b> 3.6 mzg</div>`)[0];
+                popup_37737ae95c8f91af5b77754176e2e133.setContent(html_3663fcb9bd72efb037dd23b66c4c2af0);
+            
+        
+
+        circle_marker_a101ccea7942de9613e2009c1b954d07.bindPopup(popup_37737ae95c8f91af5b77754176e2e133)
+        ;
+
+        
+    
+    
+            var circle_marker_448320d67edfe5294703e617a3c2740e = L.circleMarker(
+                [55.062327, 15.147372],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_3676c1900384bc4dd3167e57d5e5a716 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2e203636a58eaf9083448c64834cd7cc = $(`<div id="html_2e203636a58eaf9083448c64834cd7cc" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #19<br><b>Laikas:</b> 2021-12-13 14:25:28<br><b>Greitis:</b> 3.7 mzg</div>`)[0];
+                popup_3676c1900384bc4dd3167e57d5e5a716.setContent(html_2e203636a58eaf9083448c64834cd7cc);
+            
+        
+
+        circle_marker_448320d67edfe5294703e617a3c2740e.bindPopup(popup_3676c1900384bc4dd3167e57d5e5a716)
+        ;
+
+        
+    
+    
+            var circle_marker_abb36c1896cdb6980a6bcc5e8a1df514 = L.circleMarker(
+                [55.063245, 15.146748],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_fda00e0ab173c0d1421eebd89b6b191f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b390cbc1c5510a30758b5a7cf5cc76f7 = $(`<div id="html_b390cbc1c5510a30758b5a7cf5cc76f7" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #20<br><b>Laikas:</b> 2021-12-13 14:26:27<br><b>Greitis:</b> 3.6 mzg</div>`)[0];
+                popup_fda00e0ab173c0d1421eebd89b6b191f.setContent(html_b390cbc1c5510a30758b5a7cf5cc76f7);
+            
+        
+
+        circle_marker_abb36c1896cdb6980a6bcc5e8a1df514.bindPopup(popup_fda00e0ab173c0d1421eebd89b6b191f)
+        ;
+
+        
+    
+    
+            var circle_marker_1527bd3865c4d9dc418913f18ec6acab = L.circleMarker(
+                [55.063732, 15.146398],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_6a124a549b3e7e3875d46d7821ea8284 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c208d668052836ae8f2650cdd624b4c8 = $(`<div id="html_c208d668052836ae8f2650cdd624b4c8" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #21<br><b>Laikas:</b> 2021-12-13 14:26:57<br><b>Greitis:</b> 3.8 mzg</div>`)[0];
+                popup_6a124a549b3e7e3875d46d7821ea8284.setContent(html_c208d668052836ae8f2650cdd624b4c8);
+            
+        
+
+        circle_marker_1527bd3865c4d9dc418913f18ec6acab.bindPopup(popup_6a124a549b3e7e3875d46d7821ea8284)
+        ;
+
+        
+    
+    
+            var circle_marker_f887bfc19b22f0807f03c8fc7d82d598 = L.circleMarker(
+                [55.06413, 15.145878],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_5e3039617600e93122335d07b0eadf57 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3e2b6d0f59e1ae3d1bd6820a44ed286d = $(`<div id="html_3e2b6d0f59e1ae3d1bd6820a44ed286d" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #22<br><b>Laikas:</b> 2021-12-13 14:27:26<br><b>Greitis:</b> 3.7 mzg</div>`)[0];
+                popup_5e3039617600e93122335d07b0eadf57.setContent(html_3e2b6d0f59e1ae3d1bd6820a44ed286d);
+            
+        
+
+        circle_marker_f887bfc19b22f0807f03c8fc7d82d598.bindPopup(popup_5e3039617600e93122335d07b0eadf57)
+        ;
+
+        
+    
+    
+            var circle_marker_6743919d9ffced803b13ec21100e4e57 = L.circleMarker(
+                [55.064505, 15.145228],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_93792f2ca148b5c3815447d4aceff2c0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_958622745d6564d08689cb251cae2387 = $(`<div id="html_958622745d6564d08689cb251cae2387" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #23<br><b>Laikas:</b> 2021-12-13 14:27:57<br><b>Greitis:</b> 3.7 mzg</div>`)[0];
+                popup_93792f2ca148b5c3815447d4aceff2c0.setContent(html_958622745d6564d08689cb251cae2387);
+            
+        
+
+        circle_marker_6743919d9ffced803b13ec21100e4e57.bindPopup(popup_93792f2ca148b5c3815447d4aceff2c0)
+        ;
+
+        
+    
+    
+            var circle_marker_84f86878b745b70eedd8f4b85c1b53f5 = L.circleMarker(
+                [55.064838, 15.14459],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_620e89f05040f36cc8464b2a41460e1a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a600e7227eb2611de10fb5f19a4ed859 = $(`<div id="html_a600e7227eb2611de10fb5f19a4ed859" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #24<br><b>Laikas:</b> 2021-12-13 14:28:26<br><b>Greitis:</b> 3.6 mzg</div>`)[0];
+                popup_620e89f05040f36cc8464b2a41460e1a.setContent(html_a600e7227eb2611de10fb5f19a4ed859);
+            
+        
+
+        circle_marker_84f86878b745b70eedd8f4b85c1b53f5.bindPopup(popup_620e89f05040f36cc8464b2a41460e1a)
+        ;
+
+        
+    
+    
+            var circle_marker_50d31b67fb564aa662636182edc91139 = L.circleMarker(
+                [55.0652, 15.143862],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_ad90253bb4d02d6c4337628737cddf90 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fd20e76c72669207554f62d0334d3033 = $(`<div id="html_fd20e76c72669207554f62d0334d3033" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #25<br><b>Laikas:</b> 2021-12-13 14:28:58<br><b>Greitis:</b> 3.9 mzg</div>`)[0];
+                popup_ad90253bb4d02d6c4337628737cddf90.setContent(html_fd20e76c72669207554f62d0334d3033);
+            
+        
+
+        circle_marker_50d31b67fb564aa662636182edc91139.bindPopup(popup_ad90253bb4d02d6c4337628737cddf90)
+        ;
+
+        
+    
+    
+            var circle_marker_fe69f2afcd9dbfe343fcb8b8692f3c7b = L.circleMarker(
+                [55.065388, 15.143097],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_13d77e5553a72d77cb666462cde07b3d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b6a36ee5dfe46a5fc6bac40f0f9dc043 = $(`<div id="html_b6a36ee5dfe46a5fc6bac40f0f9dc043" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #26<br><b>Laikas:</b> 2021-12-13 14:29:26<br><b>Greitis:</b> 3.6 mzg</div>`)[0];
+                popup_13d77e5553a72d77cb666462cde07b3d.setContent(html_b6a36ee5dfe46a5fc6bac40f0f9dc043);
+            
+        
+
+        circle_marker_fe69f2afcd9dbfe343fcb8b8692f3c7b.bindPopup(popup_13d77e5553a72d77cb666462cde07b3d)
+        ;
+
+        
+    
+    
+            var circle_marker_3fc86b759e6295f604c1f455539be723 = L.circleMarker(
+                [55.065388, 15.143097],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_4f40c78eea0f47c4b3450b17ca13b137 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_68cb5a6d170d8630b2ec4c4d87ec4e23 = $(`<div id="html_68cb5a6d170d8630b2ec4c4d87ec4e23" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #27<br><b>Laikas:</b> 2021-12-13 14:29:50<br><b>Greitis:</b> 3.6 mzg</div>`)[0];
+                popup_4f40c78eea0f47c4b3450b17ca13b137.setContent(html_68cb5a6d170d8630b2ec4c4d87ec4e23);
+            
+        
+
+        circle_marker_3fc86b759e6295f604c1f455539be723.bindPopup(popup_4f40c78eea0f47c4b3450b17ca13b137)
+        ;
+
+        
+    
+    
+            var circle_marker_bdfffdbad994e1e1d6bede885539c04f = L.circleMarker(
+                [55.065375, 15.142173],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_fa66bb7f505e5bc23224c158d9b5c923 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bbf2f7105f15095d455a0cdf51e0514d = $(`<div id="html_bbf2f7105f15095d455a0cdf51e0514d" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #28<br><b>Laikas:</b> 2021-12-13 14:29:57<br><b>Greitis:</b> 3.6 mzg</div>`)[0];
+                popup_fa66bb7f505e5bc23224c158d9b5c923.setContent(html_bbf2f7105f15095d455a0cdf51e0514d);
+            
+        
+
+        circle_marker_bdfffdbad994e1e1d6bede885539c04f.bindPopup(popup_fa66bb7f505e5bc23224c158d9b5c923)
+        ;
+
+        
+    
+    
+            var circle_marker_26ad3a95af46c7ba22fe39d1a9b28cf5 = L.circleMarker(
+                [55.065375, 15.142173],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_95524f593cbcf1d2fe2be57fcbcdbb52 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6e3d7145d4e58d2e8ee676093eea2b93 = $(`<div id="html_6e3d7145d4e58d2e8ee676093eea2b93" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #29<br><b>Laikas:</b> 2021-12-13 14:30:02<br><b>Greitis:</b> 3.6 mzg</div>`)[0];
+                popup_95524f593cbcf1d2fe2be57fcbcdbb52.setContent(html_6e3d7145d4e58d2e8ee676093eea2b93);
+            
+        
+
+        circle_marker_26ad3a95af46c7ba22fe39d1a9b28cf5.bindPopup(popup_95524f593cbcf1d2fe2be57fcbcdbb52)
+        ;
+
+        
+    
+    
+            var circle_marker_1c5d91655dcbf809e7fc0577ec5cccdc = L.circleMarker(
+                [55.065282, 15.141328],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_ee9e7fe15990c7dcc838f772c1130f2f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_873499218067318f2d9fb6cb8620c777 = $(`<div id="html_873499218067318f2d9fb6cb8620c777" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #30<br><b>Laikas:</b> 2021-12-13 14:30:27<br><b>Greitis:</b> 3.7 mzg</div>`)[0];
+                popup_ee9e7fe15990c7dcc838f772c1130f2f.setContent(html_873499218067318f2d9fb6cb8620c777);
+            
+        
+
+        circle_marker_1c5d91655dcbf809e7fc0577ec5cccdc.bindPopup(popup_ee9e7fe15990c7dcc838f772c1130f2f)
+        ;
+
+        
+    
+    
+            var circle_marker_4642b336bc8a746aff227b744aee2c2a = L.circleMarker(
+                [55.064998, 15.140515],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_00e00eea13f9c791b5031ceac86b4900 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f8a660e68d33ee89b999b5a8af4b4fe1 = $(`<div id="html_f8a660e68d33ee89b999b5a8af4b4fe1" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> CHARVIL<br><b>Taškas:</b> #31<br><b>Laikas:</b> 2021-12-13 14:30:58<br><b>Greitis:</b> 3.7 mzg</div>`)[0];
+                popup_00e00eea13f9c791b5031ceac86b4900.setContent(html_f8a660e68d33ee89b999b5a8af4b4fe1);
+            
+        
+
+        circle_marker_4642b336bc8a746aff227b744aee2c2a.bindPopup(popup_00e00eea13f9c791b5031ceac86b4900)
+        ;
+
+        
+    
+    
+            var poly_line_a4ffc609b05c7bc4f857ae7c1773d171 = L.polyline(
+                [[55.055247, 15.15047], [55.05565, 15.150175], [55.056062, 15.15], [55.056515, 15.149802], [55.056908, 15.149627], [55.057797, 15.149168], [55.05833, 15.149027], [55.059277, 15.148467], [55.059737, 15.148332], [55.060253, 15.148032], [55.061255, 15.147873], [55.061777, 15.147682], [55.061777, 15.147682], [55.065342, 15.141535]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_625e29fbfb2d96ae064156cc70ded772 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_147f09d57af74956ce6c01c2aeba470f = $(`<div id="html_147f09d57af74956ce6c01c2aeba470f" style="width: 100.0%; height: 100.0%;">NYBOLIG</div>`)[0];
+                popup_625e29fbfb2d96ae064156cc70ded772.setContent(html_147f09d57af74956ce6c01c2aeba470f);
+            
+        
+
+        poly_line_a4ffc609b05c7bc4f857ae7c1773d171.bindPopup(popup_625e29fbfb2d96ae064156cc70ded772)
+        ;
+
+        
+    
+    
+            var circle_marker_ca0a4b6fc71a35055c6442cae53ab370 = L.circleMarker(
+                [55.055247, 15.15047],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_7ae35127efa9d45fc1c503d3ea12ade1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5bb74c803950461368c68a4dc3b932b9 = $(`<div id="html_5bb74c803950461368c68a4dc3b932b9" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> NYBOLIG<br><b>Taškas:</b> #1<br><b>Laikas:</b> 2021-12-13 14:17:55<br><b>Greitis:</b> 2.6 mzg</div>`)[0];
+                popup_7ae35127efa9d45fc1c503d3ea12ade1.setContent(html_5bb74c803950461368c68a4dc3b932b9);
+            
+        
+
+        circle_marker_ca0a4b6fc71a35055c6442cae53ab370.bindPopup(popup_7ae35127efa9d45fc1c503d3ea12ade1)
+        ;
+
+        
+    
+    
+            var circle_marker_ba18909ce46812072228a2624214e468 = L.circleMarker(
+                [55.05565, 15.150175],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_8a0f7c469e51a3c77bb245df67d17845 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bbb9ee6fcbc28fd444de609ad7414edd = $(`<div id="html_bbb9ee6fcbc28fd444de609ad7414edd" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> NYBOLIG<br><b>Taškas:</b> #2<br><b>Laikas:</b> 2021-12-13 14:18:27<br><b>Greitis:</b> 3.2 mzg</div>`)[0];
+                popup_8a0f7c469e51a3c77bb245df67d17845.setContent(html_bbb9ee6fcbc28fd444de609ad7414edd);
+            
+        
+
+        circle_marker_ba18909ce46812072228a2624214e468.bindPopup(popup_8a0f7c469e51a3c77bb245df67d17845)
+        ;
+
+        
+    
+    
+            var circle_marker_52b356ccb2aabbfecf877e50114092c6 = L.circleMarker(
+                [55.056062, 15.15],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_dd1bba2237aaa2dd8e43464c3694e9a1 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6de019e24cba497876052ba213572331 = $(`<div id="html_6de019e24cba497876052ba213572331" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> NYBOLIG<br><b>Taškas:</b> #3<br><b>Laikas:</b> 2021-12-13 14:18:55<br><b>Greitis:</b> 3.4 mzg</div>`)[0];
+                popup_dd1bba2237aaa2dd8e43464c3694e9a1.setContent(html_6de019e24cba497876052ba213572331);
+            
+        
+
+        circle_marker_52b356ccb2aabbfecf877e50114092c6.bindPopup(popup_dd1bba2237aaa2dd8e43464c3694e9a1)
+        ;
+
+        
+    
+    
+            var circle_marker_39b5ee72638aa2891d07732d82646bf3 = L.circleMarker(
+                [55.056515, 15.149802],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_87347c47333d9b9698fa0bf2a384374b = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_813c5b770d25a62ee7ee11cafc4575a0 = $(`<div id="html_813c5b770d25a62ee7ee11cafc4575a0" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> NYBOLIG<br><b>Taškas:</b> #4<br><b>Laikas:</b> 2021-12-13 14:19:27<br><b>Greitis:</b> 2.8 mzg</div>`)[0];
+                popup_87347c47333d9b9698fa0bf2a384374b.setContent(html_813c5b770d25a62ee7ee11cafc4575a0);
+            
+        
+
+        circle_marker_39b5ee72638aa2891d07732d82646bf3.bindPopup(popup_87347c47333d9b9698fa0bf2a384374b)
+        ;
+
+        
+    
+    
+            var circle_marker_308a11951857ee457fa4cf643b5bb182 = L.circleMarker(
+                [55.056908, 15.149627],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_9f74a7a49a0c83ef7fafb19920f21b72 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_24d3a3a5e281257185ace424f7c01551 = $(`<div id="html_24d3a3a5e281257185ace424f7c01551" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> NYBOLIG<br><b>Taškas:</b> #5<br><b>Laikas:</b> 2021-12-13 14:19:55<br><b>Greitis:</b> 3.5 mzg</div>`)[0];
+                popup_9f74a7a49a0c83ef7fafb19920f21b72.setContent(html_24d3a3a5e281257185ace424f7c01551);
+            
+        
+
+        circle_marker_308a11951857ee457fa4cf643b5bb182.bindPopup(popup_9f74a7a49a0c83ef7fafb19920f21b72)
+        ;
+
+        
+    
+    
+            var circle_marker_c56f5a60e4ea72cf6f4d539cdc3ae6a2 = L.circleMarker(
+                [55.057797, 15.149168],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_2e99d336cf16131b950200f7300d5612 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7bfdaf2bc43b84b5ea03151f6f82ebd8 = $(`<div id="html_7bfdaf2bc43b84b5ea03151f6f82ebd8" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> NYBOLIG<br><b>Taškas:</b> #6<br><b>Laikas:</b> 2021-12-13 14:20:55<br><b>Greitis:</b> 3.7 mzg</div>`)[0];
+                popup_2e99d336cf16131b950200f7300d5612.setContent(html_7bfdaf2bc43b84b5ea03151f6f82ebd8);
+            
+        
+
+        circle_marker_c56f5a60e4ea72cf6f4d539cdc3ae6a2.bindPopup(popup_2e99d336cf16131b950200f7300d5612)
+        ;
+
+        
+    
+    
+            var circle_marker_63d049dcecf5475f3c51b6b35ff2a2e8 = L.circleMarker(
+                [55.05833, 15.149027],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_4879ef0f121db60428ff0cc071d796f4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_07e31951a901eac10d65fc2898e2c45d = $(`<div id="html_07e31951a901eac10d65fc2898e2c45d" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> NYBOLIG<br><b>Taškas:</b> #7<br><b>Laikas:</b> 2021-12-13 14:21:27<br><b>Greitis:</b> 3.6 mzg</div>`)[0];
+                popup_4879ef0f121db60428ff0cc071d796f4.setContent(html_07e31951a901eac10d65fc2898e2c45d);
+            
+        
+
+        circle_marker_63d049dcecf5475f3c51b6b35ff2a2e8.bindPopup(popup_4879ef0f121db60428ff0cc071d796f4)
+        ;
+
+        
+    
+    
+            var circle_marker_f3ff4242c37b82ea87fb227535e48f3f = L.circleMarker(
+                [55.059277, 15.148467],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_c827795d218ef47c97b228b918a3866a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6f89be43ab38351b022d29e37ecf2133 = $(`<div id="html_6f89be43ab38351b022d29e37ecf2133" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> NYBOLIG<br><b>Taškas:</b> #8<br><b>Laikas:</b> 2021-12-13 14:22:28<br><b>Greitis:</b> 3.7 mzg</div>`)[0];
+                popup_c827795d218ef47c97b228b918a3866a.setContent(html_6f89be43ab38351b022d29e37ecf2133);
+            
+        
+
+        circle_marker_f3ff4242c37b82ea87fb227535e48f3f.bindPopup(popup_c827795d218ef47c97b228b918a3866a)
+        ;
+
+        
+    
+    
+            var circle_marker_a3a08d7a8fd2990763a48e369715030b = L.circleMarker(
+                [55.059737, 15.148332],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_61d53200185f5cdc5b4c9a3d4a0dcb16 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_557199f00587d0431f502e272b14258f = $(`<div id="html_557199f00587d0431f502e272b14258f" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> NYBOLIG<br><b>Taškas:</b> #9<br><b>Laikas:</b> 2021-12-13 14:22:55<br><b>Greitis:</b> 3.8 mzg</div>`)[0];
+                popup_61d53200185f5cdc5b4c9a3d4a0dcb16.setContent(html_557199f00587d0431f502e272b14258f);
+            
+        
+
+        circle_marker_a3a08d7a8fd2990763a48e369715030b.bindPopup(popup_61d53200185f5cdc5b4c9a3d4a0dcb16)
+        ;
+
+        
+    
+    
+            var circle_marker_d2234bc6dc4394a75efd54678a15897d = L.circleMarker(
+                [55.060253, 15.148032],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_8ad5dbb1f9925e2b254e120b37797a3f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2b60c8c8e36beedd3aa085343b0ff711 = $(`<div id="html_2b60c8c8e36beedd3aa085343b0ff711" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> NYBOLIG<br><b>Taškas:</b> #10<br><b>Laikas:</b> 2021-12-13 14:23:28<br><b>Greitis:</b> 3.6 mzg</div>`)[0];
+                popup_8ad5dbb1f9925e2b254e120b37797a3f.setContent(html_2b60c8c8e36beedd3aa085343b0ff711);
+            
+        
+
+        circle_marker_d2234bc6dc4394a75efd54678a15897d.bindPopup(popup_8ad5dbb1f9925e2b254e120b37797a3f)
+        ;
+
+        
+    
+    
+            var circle_marker_281c5d00e4a8a60c386fcf8f83638407 = L.circleMarker(
+                [55.061255, 15.147873],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_219900246f493b5c26b0a3276ab6a552 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7b7d1019bc90496ad984d3a3886aba01 = $(`<div id="html_7b7d1019bc90496ad984d3a3886aba01" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> NYBOLIG<br><b>Taškas:</b> #11<br><b>Laikas:</b> 2021-12-13 14:24:28<br><b>Greitis:</b> 3.6 mzg</div>`)[0];
+                popup_219900246f493b5c26b0a3276ab6a552.setContent(html_7b7d1019bc90496ad984d3a3886aba01);
+            
+        
+
+        circle_marker_281c5d00e4a8a60c386fcf8f83638407.bindPopup(popup_219900246f493b5c26b0a3276ab6a552)
+        ;
+
+        
+    
+    
+            var circle_marker_93dbdf4882bb97db7f92349f5896f507 = L.circleMarker(
+                [55.061777, 15.147682],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_654c3041c09d5ceb77c93c2bfeeef48f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1a31f85a4cf670f5576c53d0e55c9c50 = $(`<div id="html_1a31f85a4cf670f5576c53d0e55c9c50" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> NYBOLIG<br><b>Taškas:</b> #12<br><b>Laikas:</b> 2021-12-13 14:24:59<br><b>Greitis:</b> 3.7 mzg</div>`)[0];
+                popup_654c3041c09d5ceb77c93c2bfeeef48f.setContent(html_1a31f85a4cf670f5576c53d0e55c9c50);
+            
+        
+
+        circle_marker_93dbdf4882bb97db7f92349f5896f507.bindPopup(popup_654c3041c09d5ceb77c93c2bfeeef48f)
+        ;
+
+        
+    
+    
+            var circle_marker_f71759124b1d4442a44ddb4a2c603530 = L.circleMarker(
+                [55.061777, 15.147682],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_c8f9c8ab5fc17cb66cc10825e841525a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ff400b6aa3cbbaab54428f25e78340ec = $(`<div id="html_ff400b6aa3cbbaab54428f25e78340ec" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> NYBOLIG<br><b>Taškas:</b> #13<br><b>Laikas:</b> 2021-12-13 14:26:39<br><b>Greitis:</b> 3.7 mzg</div>`)[0];
+                popup_c8f9c8ab5fc17cb66cc10825e841525a.setContent(html_ff400b6aa3cbbaab54428f25e78340ec);
+            
+        
+
+        circle_marker_f71759124b1d4442a44ddb4a2c603530.bindPopup(popup_c8f9c8ab5fc17cb66cc10825e841525a)
+        ;
+
+        
+    
+    
+            var circle_marker_626fc95ce47d8ec375a18b2f7f284071 = L.circleMarker(
+                [55.065342, 15.141535],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 1.0, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 1}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+        var popup_c3da27da0eca9d9b6845ae887c581767 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_67aed66129a64c17e9d95581fd2b8bd0 = $(`<div id="html_67aed66129a64c17e9d95581fd2b8bd0" style="width: 100.0%; height: 100.0%;"><b>Laivas:</b> NYBOLIG<br><b>Taškas:</b> #14<br><b>Laikas:</b> 2021-12-13 14:30:28<br><b>Greitis:</b> 3.7 mzg</div>`)[0];
+                popup_c3da27da0eca9d9b6845ae887c581767.setContent(html_67aed66129a64c17e9d95581fd2b8bd0);
+            
+        
+
+        circle_marker_626fc95ce47d8ec375a18b2f7f284071.bindPopup(popup_c3da27da0eca9d9b6845ae887c581767)
+        ;
+
+        
+    
+    
+            var marker_ec046c1a22b95d0ecd32d9977d0d2631 = L.marker(
+                [55.060318, 15.148062],
+                {
+}
+            ).addTo(map_1c992d6035d2c858295ce7695107f867);
+        
+    
+            var icon_4084160fc6c7062863eecf9997354ab6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "exclamation-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_24c47513f82a0eb1cc3e089781a627c6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_57ab5750f6d0c792a6e706014df8f9cf = $(`<div id="html_57ab5750f6d0c792a6e706014df8f9cf" style="width: 100.0%; height: 100.0%;"><b>KULMINACIJA</b><br>Atstumas: 0.0018992964444717588 m</div>`)[0];
+                popup_24c47513f82a0eb1cc3e089781a627c6.setContent(html_57ab5750f6d0c792a6e706014df8f9cf);
+            
+        
+
+        marker_ec046c1a22b95d0ecd32d9977d0d2631.bindPopup(popup_24c47513f82a0eb1cc3e089781a627c6)
+        ;
+
+        
+    
+    
+                marker_ec046c1a22b95d0ecd32d9977d0d2631.setIcon(icon_4084160fc6c7062863eecf9997354ab6);
+            
+</script>
+</html>
